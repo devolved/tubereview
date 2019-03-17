@@ -5,22 +5,18 @@
 {{!-- fetch channel url or name depending on which is entered --}}
             <li>
                 <label for="chanName">Channel name</label>        
-                <input type="text" name="chanName">
-            </li>
-            <li>
-                <label for="chan-url">Channel URL</label>
-                <input type="text" id="chan-url" name="chanURL">
+                <input type="text" name="chanName" minlength="6">
             </li>
             <li>
                 <label for="rating">Rating</label>
                 <input type="text" id="rating-score" name="ratingScore">
             <li>
                 <label for="rating-title">Rating title</label>
-                <input type="text" id="rating-title" name="ratingTitle">            
+                <input type="text" id="rating-title" name="ratingTitle" minlength="2" maxlength="200">            
             </li>
             <li>
                 <label for="rating-content">Review</label>
-                <textarea id="rating-content" name="ratingContent"></textarea>           
+                <textarea id="rating-content" name="ratingContent" minlength="2" maxlength="200"></textarea>           
             </li>
             <li>
                 <input type="submit" value="Add review"></input>
@@ -30,7 +26,7 @@
 
     </form>
 </main>
-<aside>
-    <h2>How to add</h2>
+<aside class="sidebar" id="info">
+    <h2>Chan preview</h2>
     <p>Derp de derpy de derp</p>
 </aside>

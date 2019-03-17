@@ -5,16 +5,16 @@ var assert = require('assert');
 var url = 'mongodb://localhost:27017/tube';
 
 // add review
-router.get('/', function(req, res, next) {
+router.get('/add', function(req, res, next) {
   res.render('add');
 });
 
 
-// show review
-// make a length check and error catch too!
+// show review on nav
 router.get('/:chanName', function(req, res, next) {
+
   if (req.params.chanName != 'add' && req.params.chanName.length > 5) {
-   var myData = {};  
+   var reviewData = {};  
 
     MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
       if (err) { return console.log('Unable to connect to MongoDB'); } 
@@ -23,18 +23,22 @@ router.get('/:chanName', function(req, res, next) {
       client.db('tube').collection('channel-reviews').find({'channel': req.params.chanName}).toArray(function(err, result) {
         if (err) throw err;
         
-        myData = result[0];
-        
-        client.close();  
-        res.render('review', {myData} );    
+        reviewData = result[0];
+        client.close();
+
+        // check a review exists
+        if (result[0] === undefined) {
+          res.redirect('/review/add');
+        } else {
+          res.render('review', {reviewData});
+        }
+
       });
-
-
 
     });
       
   } else {
-    res.render('add');
+    res.redirect('/review/add');
   }
 });
   
