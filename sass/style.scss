@@ -1,0 +1,173 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+
+
+$col1: #7acf18;
+$col2: #8b1923;
+$bg: #222;
+$text: #555;
+$grey-light: #ccc;
+$textshadow: 1px 1px 1px rgba(0,0,0,0.6);
+
+article, aside, div, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block; box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    color: $text;
+    text-align: left;
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 400;
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: none;
+    -ms-text-size-adjust: 100%;
+    font-family: 'Roboto', "Helvetica", "Arial", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: $col1;
+    &:hover, &:active, &:focus {
+    color: $col2;
+    -webkit-transition: all 300ms ease-in;
+    -moz-transition: all 300ms ease-in;
+    transition: all 300ms ease-in;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 { 
+    margin: 0 0 1rem 0;
+    padding: 0;
+    font-size: 1.4em;
+    font-weight: bolder;
+    color: $col2;   
+}
+
+
+p { line-height: 1.25em; margin: 0.5em 0;  }
+
+b, strong, .bold { font-weight: bolder; }
+
+img {
+    border: 0;
+    height: auto;
+    max-width: 100%;
+    -ms-interpolation-mode: bicubic;
+}
+
+.wrap {
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+#outer { text-align: left; margin: 0 auto; }
+
+
+
+// content blocks
+.flex { display: block; }
+
+main, aside {
+    padding: 2rem 0;
+    display: block;
+}
+
+footer {
+    background: $bg;
+}
+
+// all nav
+nav {
+    background: $bg;
+
+    a { font-weight: bolder; }
+    ul { margin: 0; padding: 0; }
+    li { }
+
+}
+
+/* forms */
+
+form {
+    border: 0; padding: 0; margin: 0;
+
+    ul li { margin-bottom: 1.5rem; }
+}
+
+label { 
+    display: block;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    margin-bottom: 0.5rem;
+}
+
+input, textarea {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid $grey-light;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    color: $text;
+}
+
+button, input[type="submit"] {
+    cursor: pointer;
+    background: $col2;
+    display: inline-block;
+    width: auto;
+    padding: 0.5rem 1rem;
+
+    &:hover {
+        background: $col1;
+    }
+}
+
+
+/* desktop */
+@media only screen and (min-width: 959px) {
+
+h1, h2, h3, h4, h5, h6 { 
+    margin: 0 0 1rem 0;
+    padding: 0;
+    font-size: 2.8em;
+    font-weight: bolder;
+    color: $col2;   
+}
+
+nav { 
+    li { display: inline; margin-right: 1em; }
+}
+
+.wrap { 
+    max-width: 1200px;
+    padding: 3rem 0;
+}
+
+.flex {
+    display: flex;
+}
+
+main {
+    flex: 2 1 0;
+    padding: 0;
+    margin-right: 2rem;
+}
+
+aside {
+    flex: 1 1 0;
+    padding: 0;
+    margin-left: 2rem;
+}
+
+// end desktop
+}

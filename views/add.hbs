@@ -1,0 +1,36 @@
+<main>
+    <h1>Add review</h1>
+    <form action="/review/add" method="POST">
+        <ul> 
+{{!-- fetch channel url or name depending on which is entered --}}
+            <li>
+                <label for="chanName">Channel name</label>        
+                <input type="text" name="chanName">
+            </li>
+            <li>
+                <label for="chan-url">Channel URL</label>
+                <input type="text" id="chan-url" name="chanURL">
+            </li>
+            <li>
+                <label for="rating">Rating</label>
+                <input type="text" id="rating-score" name="ratingScore">
+            <li>
+                <label for="rating-title">Rating title</label>
+                <input type="text" id="rating-title" name="ratingTitle">            
+            </li>
+            <li>
+                <label for="rating-content">Review</label>
+                <textarea id="rating-content" name="ratingContent"></textarea>           
+            </li>
+            <li>
+                <input type="submit" value="Add review"></input>
+            </li>
+        </ul>
+
+
+    </form>
+</main>
+<aside>
+    <h2>How to add</h2>
+    <p>Derp de derpy de derp</p>
+</aside>

@@ -1,0 +1,261 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 5, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 16, ../../sass/style.scss */
+article, aside, div, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+  box-sizing: border-box;
+}
+
+/* line 20, ../../sass/style.scss */
+html, body {
+  margin: 0;
+  padding: 0;
+  color: #555;
+  text-align: left;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 400;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+  -ms-text-size-adjust: 100%;
+  font-family: 'Roboto', "Helvetica", "Arial", sans-serif;
+}
+
+/* line 35, ../../sass/style.scss */
+a {
+  text-decoration: none;
+  color: #7acf18;
+}
+/* line 38, ../../sass/style.scss */
+a:hover, a:active, a:focus {
+  color: #8b1923;
+  -webkit-transition: all 300ms ease-in;
+  -moz-transition: all 300ms ease-in;
+  transition: all 300ms ease-in;
+}
+
+/* line 46, ../../sass/style.scss */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 1rem 0;
+  padding: 0;
+  font-size: 1.4em;
+  font-weight: bolder;
+  color: #8b1923;
+}
+
+/* line 55, ../../sass/style.scss */
+p {
+  line-height: 1.25em;
+  margin: 0.5em 0;
+}
+
+/* line 57, ../../sass/style.scss */
+b, strong, .bold {
+  font-weight: bolder;
+}
+
+/* line 59, ../../sass/style.scss */
+img {
+  border: 0;
+  height: auto;
+  max-width: 100%;
+  -ms-interpolation-mode: bicubic;
+}
+
+/* line 66, ../../sass/style.scss */
+.wrap {
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* line 71, ../../sass/style.scss */
+#outer {
+  text-align: left;
+  margin: 0 auto;
+}
+
+/* line 76, ../../sass/style.scss */
+.flex {
+  display: block;
+}
+
+/* line 78, ../../sass/style.scss */
+main, aside {
+  padding: 2rem 0;
+  display: block;
+}
+
+/* line 83, ../../sass/style.scss */
+footer {
+  background: #222;
+}
+
+/* line 88, ../../sass/style.scss */
+nav {
+  background: #222;
+}
+/* line 91, ../../sass/style.scss */
+nav a {
+  font-weight: bolder;
+}
+/* line 92, ../../sass/style.scss */
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* forms */
+/* line 99, ../../sass/style.scss */
+form {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+/* line 102, ../../sass/style.scss */
+form ul li {
+  margin-bottom: 1.5rem;
+}
+
+/* line 105, ../../sass/style.scss */
+label {
+  display: block;
+  font-weight: bolder;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  margin-bottom: 0.5rem;
+}
+
+/* line 113, ../../sass/style.scss */
+input, textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  color: #555;
+}
+
+/* line 123, ../../sass/style.scss */
+button, input[type="submit"] {
+  cursor: pointer;
+  background: #8b1923;
+  display: inline-block;
+  width: auto;
+  padding: 0.5rem 1rem;
+}
+/* line 130, ../../sass/style.scss */
+button:hover, input[type="submit"]:hover {
+  background: #7acf18;
+}
+
+/* desktop */
+@media only screen and (min-width: 959px) {
+  /* line 139, ../../sass/style.scss */
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 1rem 0;
+    padding: 0;
+    font-size: 2.8em;
+    font-weight: bolder;
+    color: #8b1923;
+  }
+
+  /* line 148, ../../sass/style.scss */
+  nav li {
+    display: inline;
+    margin-right: 1em;
+  }
+
+  /* line 151, ../../sass/style.scss */
+  .wrap {
+    max-width: 1200px;
+    padding: 3rem 0;
+  }
+
+  /* line 156, ../../sass/style.scss */
+  .flex {
+    display: flex;
+  }
+
+  /* line 160, ../../sass/style.scss */
+  main {
+    flex: 2 1 0;
+    padding: 0;
+    margin-right: 2rem;
+  }
+
+  /* line 166, ../../sass/style.scss */
+  aside {
+    flex: 1 1 0;
+    padding: 0;
+    margin-left: 2rem;
+  }
+}
