@@ -15,21 +15,14 @@ router.get('/', function(req, res, next) {
     client.db('tube').collection('channel-reviews').find({}).limit(10).sort({ $natural: -1 }).toArray(function(err, result) {
       if (err) throw err;
 
-      console.log(result);
       client.close();
 
-
-
-    //output page
+      //output page
     res.render('index', { title: 'Tube Review', result });
 
     });
   });
 
-
-
 });
-
-
 
 module.exports = router;

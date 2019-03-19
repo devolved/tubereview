@@ -97,12 +97,9 @@ a {
 /* line 38, ../../sass/style.scss */
 a:hover, a:active, a:focus {
   color: #8b1923;
-  -webkit-transition: all 300ms ease-in;
-  -moz-transition: all 300ms ease-in;
-  transition: all 300ms ease-in;
 }
 
-/* line 46, ../../sass/style.scss */
+/* line 43, ../../sass/style.scss */
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 1rem 0;
   padding: 0;
@@ -110,10 +107,19 @@ h1, h2, h3, h4, h5, h6 {
   color: #8b1923;
 }
 
-/* line 54, ../../sass/style.scss */
+/* line 51, ../../sass/style.scss */
 p {
   line-height: 1.25em;
   margin: 0.5em 0;
+}
+
+/* line 52, ../../sass/style.scss */
+ul {
+  margin: 0 0 2em 0;
+}
+/* line 54, ../../sass/style.scss */
+ul li {
+  line-height: 1.25em;
 }
 
 /* line 56, ../../sass/style.scss */
@@ -122,6 +128,12 @@ b, strong, .bold {
 }
 
 /* line 58, ../../sass/style.scss */
+.emph {
+  font-weight: bolder;
+  font-size: 1.1em;
+}
+
+/* line 60, ../../sass/style.scss */
 img {
   border: 0;
   height: auto;
@@ -129,92 +141,100 @@ img {
   -ms-interpolation-mode: bicubic;
 }
 
-/* line 65, ../../sass/style.scss */
+/* line 67, ../../sass/style.scss */
 .wrap {
   margin: 0 auto;
   padding: 2rem 1rem;
 }
 
-/* line 70, ../../sass/style.scss */
+/* line 72, ../../sass/style.scss */
 #outer {
   text-align: left;
   margin: 0 auto;
 }
 
-/* line 75, ../../sass/style.scss */
+/* line 77, ../../sass/style.scss */
 .flex {
   display: block;
 }
 
-/* line 77, ../../sass/style.scss */
+/* line 79, ../../sass/style.scss */
 main, aside {
   padding: 2rem 0;
   display: block;
 }
 
-/* line 82, ../../sass/style.scss */
+/* line 84, ../../sass/style.scss */
 aside.sidebar {
   border: 1px solid #ccc;
   border-radius: 1rem;
   padding: 1rem;
 }
 
-/* line 88, ../../sass/style.scss */
+/* line 90, ../../sass/style.scss */
 footer {
   background: #222;
 }
 
-/* line 97, ../../sass/style.scss */
+/* line 99, ../../sass/style.scss */
 .latest-home li {
   line-height: 1;
-  padding-top: 1em;
-  margin-bottom: 1em;
   border-top: 1px dotted #ccc;
 }
-/* line 103, ../../sass/style.scss */
+/* line 105, ../../sass/style.scss */
 .latest-home li:first-child {
   border: 0;
 }
-/* line 105, ../../sass/style.scss */
+/* line 107, ../../sass/style.scss */
 .latest-home li a {
   display: block;
+  padding: 1em;
+  transition: color 400ms ease-in-out;
   font-size: 1.1em;
   font-weight: bolder;
 }
-/* line 111, ../../sass/style.scss */
-.latest-home li a p {
-  margin: 0.25em 0 0 0;
+/* line 115, ../../sass/style.scss */
+.latest-home li a span {
+  display: block;
+  padding: 0.25em 0 0 0;
   font-weight: normal;
+  font-size: 0.9em;
+  color: #ccc;
+  transition: color 400ms ease-in-out;
+}
+/* line 126, ../../sass/style.scss */
+.latest-home li:hover span {
   color: #555;
 }
 
-/* line 120, ../../sass/style.scss */
+/* line 142, ../../sass/style.scss */
 nav {
   background: #222;
 }
-/* line 123, ../../sass/style.scss */
+/* line 145, ../../sass/style.scss */
 nav a {
   font-weight: bolder;
+  transition: color 300ms ease-in;
 }
-/* line 124, ../../sass/style.scss */
+/* line 146, ../../sass/style.scss */
 nav ul {
   margin: 0;
   padding: 0;
 }
 
 /* forms */
-/* line 131, ../../sass/style.scss */
+/* line 153, ../../sass/style.scss */
 form {
   border: 0;
   padding: 0;
   margin: 0;
 }
-/* line 134, ../../sass/style.scss */
+/* line 156, ../../sass/style.scss */
 form ul li {
   margin-bottom: 1.5rem;
 }
 
-/* line 137, ../../sass/style.scss */
+/* line 159, ../../sass/style.scss */
 label {
   display: block;
   font-weight: bolder;
@@ -223,7 +243,7 @@ label {
   margin-bottom: 0.5rem;
 }
 
-/* line 145, ../../sass/style.scss */
+/* line 167, ../../sass/style.scss */
 input, textarea {
   display: block;
   box-sizing: border-box;
@@ -234,7 +254,7 @@ input, textarea {
   color: #555;
 }
 
-/* line 155, ../../sass/style.scss */
+/* line 177, ../../sass/style.scss */
 button, input[type="submit"] {
   cursor: pointer;
   background: #8b1923;
@@ -242,46 +262,52 @@ button, input[type="submit"] {
   width: auto;
   padding: 0.5rem 1rem;
 }
-/* line 162, ../../sass/style.scss */
+/* line 184, ../../sass/style.scss */
 button:hover, input[type="submit"]:hover {
   background: #7acf18;
 }
 
 /* desktop */
 @media only screen and (min-width: 959px) {
-  /* line 171, ../../sass/style.scss */
+  /* line 193, ../../sass/style.scss */
   h1, h2, h3, h4, h5, h6 {
     font-size: 2em;
   }
 
-  /* line 176, ../../sass/style.scss */
+  /* line 198, ../../sass/style.scss */
   nav li {
     display: inline;
     margin-right: 1em;
   }
 
-  /* line 179, ../../sass/style.scss */
+  /* line 201, ../../sass/style.scss */
   .wrap {
     max-width: 1200px;
     padding: 3rem 0;
   }
 
-  /* line 184, ../../sass/style.scss */
+  /* line 206, ../../sass/style.scss */
   .flex {
     display: flex;
   }
 
-  /* line 188, ../../sass/style.scss */
+  /* line 210, ../../sass/style.scss */
   main {
     flex: 2 1 0;
     padding: 0;
     margin-right: 2rem;
   }
 
-  /* line 194, ../../sass/style.scss */
+  /* line 216, ../../sass/style.scss */
   aside {
     flex: 1 1 0;
     padding: 0;
     margin-left: 2rem;
+  }
+
+  /* line 227, ../../sass/style.scss */
+  ul.review-meta li {
+    display: inline;
+    margin-right: 1rem;
   }
 }

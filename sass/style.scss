@@ -37,9 +37,6 @@ a {
     color: $col1;
     &:hover, &:active, &:focus {
     color: $col2;
-    -webkit-transition: all 300ms ease-in;
-    -moz-transition: all 300ms ease-in;
-    transition: all 300ms ease-in;
     }
 }
 
@@ -52,8 +49,13 @@ h1, h2, h3, h4, h5, h6 {
 
 
 p { line-height: 1.25em; margin: 0.5em 0;  }
-
+ul {
+    margin: 0 0 2em 0;
+    li { line-height: 1.25em; }
+}
 b, strong, .bold { font-weight: bolder; }
+
+.emph { font-weight: bolder; font-size: 1.1em; }
 
 img {
     border: 0;
@@ -96,31 +98,51 @@ footer {
 
     li {
         line-height: 1;
-        padding-top: 1em;
-        margin-bottom: 1em;
+        // padding: 1em 1em 0 1em;
+        // margin-bottom: 0em;
         border-top: 1px dotted $grey-light;
         
         &:first-child { border: 0; }
 
         a { 
             display: block;
+            padding: 1em;
+            transition: color 400ms ease-in-out;
             font: {
                 size: 1.1em;
                 weight: bolder;
             }
-            p { margin: 0.25em 0 0 0; font-weight: normal; color: $text; }
+            span {
+                display: block;
+                padding: 0.25em 0 0 0;
+                font-weight: normal;
+                font-size: 0.9em;
+                color: $grey-light;
+                transition: color 400ms ease-in-out;
+            }
 
         }
 
+        &:hover { span { color: $text} }
     }
 
 }
+
+// review page 
+
+ul.review-meta {
+
+
+
+}
+
+
 
 // all nav
 nav {
     background: $bg;
 
-    a { font-weight: bolder; }
+    a { font-weight: bolder; transition: color 300ms ease-in; }
     ul { margin: 0; padding: 0; }
     li { }
 
@@ -196,6 +218,19 @@ aside {
     padding: 0;
     margin-left: 2rem;
 }
+
+
+// review page 
+
+ul.review-meta {
+
+    li { display: inline; margin-right: 1rem; }
+    
+
+}
+
+
+
 
 // end desktop
 }
