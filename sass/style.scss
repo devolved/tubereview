@@ -89,6 +89,33 @@ footer {
     background: $bg;
 }
 
+
+// home page
+
+.latest-home {
+
+    li {
+        line-height: 1;
+        padding-top: 1em;
+        margin-bottom: 1em;
+        border-top: 1px dotted $grey-light;
+        
+        &:first-child { border: 0; }
+
+        a { 
+            display: block;
+            font: {
+                size: 1.1em;
+                weight: bolder;
+            }
+            p { margin: 0.25em 0 0 0; font-weight: normal; color: $text; }
+
+        }
+
+    }
+
+}
+
 // all nav
 nav {
     background: $bg;

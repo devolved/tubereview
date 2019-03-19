@@ -4,4 +4,14 @@
 </main>
 <aside>
     <h2>Latest reviews</h2>
+    <ul class="latest-home">
+    {{#each result}}
+        <li>
+            <a href="/review/{{ this.channel }}">
+                {{ this.channel }}
+                <p>{{ this.title }}</p>
+            </a>
+        </li>
+    {{/each}}
+    </ul>
 </aside>
