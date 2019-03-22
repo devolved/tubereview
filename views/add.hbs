@@ -15,9 +15,7 @@
             <form action="/review/add" method="POST">
                 <ul> 
         {{!-- fetch channel url or name depending on which is entered --}}
-                    <li>
-                        <input type="hidden" name="channel-url" id="channel-url" minlength="6">
-                    </li>
+
                     <li>
                         <label for="rating">Rating</label>
                         <input type="text" id="rating-score" name="ratingScore">
@@ -30,6 +28,17 @@
                         <textarea id="rating-content" name="ratingContent" minlength="2" maxlength="200"></textarea>           
                     </li>
                     <li>
+                        <input type="hidden" id="channel-title" name="channelTitle">
+                        <input type="hidden" id="channel-url" name="channelUrl">
+                        <input type="hidden" id="channel-banner" name="channelBanner">
+                        <input type="hidden" id="channel-thumb" name="channelThumb">
+                        <input type="hidden" id="channel-description" name="channelDescription">
+                        <input type="hidden" id="channel-subs" name="channelSubs">
+                        <input type="hidden" id="channel-views" name="channelViews">
+ 
+ 
+                    </li>                    
+                    <li>
                         <input type="submit" value="Add review"></input>
                     </li>
                 </ul>
@@ -39,7 +48,8 @@
         </main>
         <aside class="sidebar" id="info">
             <h2>Chan preview</h2>
-            <button id="trig">Trigger</button>
+
+
             <br><br>
             <button id="signin-button" onclick="handleSignInClick()">Sign In</button>
             <button id="signout-button" onclick="handleSignOutClick()">Sign Out</button>

@@ -11,19 +11,20 @@ router.get('/add', function(req, res, next) {
 
 
 // show review on nav
-router.get('/:chanName', function(req, res, next) {
+router.get('/:channelTitle', function(req, res, next) {
 
-  if (req.params.chanName != 'add' && req.params.chanName.length > 5) {
+  if (req.params.channelTitle != 'add') {
    var reviewData = {};  
 
     MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
       if (err) { return console.log('Unable to connect to MongoDB'); } 
 
       //get result from db     
-      client.db('tube').collection('channel-reviews').find({'channel': req.params.chanName}).toArray(function(err, result) {
+      client.db('tube').collection('channel-reviews').find({'channelTitle': req.params.channelTitle}).toArray(function(err, result) {
         if (err) throw err;
         
         reviewData = result[0];
+        console.log(reviewData);
         client.close();
 
         // check a review exists
@@ -46,11 +47,16 @@ router.get('/:chanName', function(req, res, next) {
 router.post('/add', function(req, res, next) {
 
     var review = {
-        channel: req.body.chanName,
-        chanURL: req.body.chanURL,
-        score: req.body.ratingScore,
-        title: req.body.ratingTitle,
-        content: req.body.ratingContent
+        channelTitle: req.body.channelTitle,
+        channelUrl: req.body.channelUrl,
+        channelBanner: req.body.channelBanner,
+        channelThumb: req.body.channelThumb,
+        channelDescription: req.body.channelDescription,
+        channelSubs: req.body.channelSubs,
+        channelViews: req.body.channelViews,
+        ratingScore: req.body.ratingScore,
+        ratingTitle: req.body.ratingTitle,
+        ratingContent: req.body.ratingContent
     };
 
     MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
@@ -64,7 +70,7 @@ router.post('/add', function(req, res, next) {
       });
 
       client.close();
-      res.redirect('../review/' + review.channel);
+      res.redirect('../review/' + review.channelTitle);
 
     });
 

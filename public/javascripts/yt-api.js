@@ -13,7 +13,6 @@ function initClient() {
   }).then(function () {
     // Listen for sign-in state changes.
     gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-
     // Handle the initial sign-in state.
     updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
   });
@@ -32,58 +31,68 @@ function updateSigninStatus(isSignedIn) {
 function handleSignInClick(event) { gapi.auth2.getAuthInstance().signIn(); }
 function handleSignOutClick(event) { gapi.auth2.getAuthInstance().signOut(); }
 
-
 // Process YT channel URL
 // https://www.youtube.com/channel/UCnQC_G5Xsjhp9fEJKuIcrSw
 
-let YTchannel = 'url';
-
 document.getElementById('chan').addEventListener('change', function(){
-  let x = this.value.trim();
-  if(x.length == 24) {
-    YTchannel = this.value;
+  let YTchannel = this.value.trim();
+  
+  if(YTchannel.length == 24) {
+
     document.getElementById('chan-error').innerHTML = '';
-    console.log(YTchannel);
-  } else if ( x.length === 56) {
-    YTchannel = x.substring(32, 56);
+    makeApiCall(YTchannel);
+  } else if (YTchannel.length == 56) {
+    YTchannel = YTchannel.substring(32, 56);
     document.getElementById('chan-error').innerHTML = '';
-    console.log(YTchannel);
+    makeApiCall(YTchannel);
   } else {
     document.getElementById('chan-error').innerHTML = 'Please enter a valid channel URL';
   };
 
-  
-  
-  
 });
 
 
 
-function makeApiCall() {
-
-  // Make an API call to the People API, and print the user's given name.
+function makeApiCall(YTchannel) {
+  const YTinfo = {};
+  // Make an API call
   gapi.client.youtube.channels.list({
     'part': 'snippet,statistics,brandingSettings',
     'id': YTchannel
   }).then(function(response) {
-    var YTinfo = response.result.items[0];
+    let YTinfo = response.result.items[0];
 
-    console.log(YTinfo.brandingSettings.image.bannerImageUrl);
+    console.log(YTinfo);
 
-    
-document.getElementById('yt-banner').style.backgroundImage='url("' + YTinfo.brandingSettings.image.bannerImageUrl + '")';
-
-
+    populatePage(YTinfo);
   });
   
 }
 
+function populatePage(YTinfo){
+  // set banner img
+  document.getElementById('yt-banner').style.backgroundImage='url("' + YTinfo.brandingSettings.image.bannerTabletExtraHdImageUrl + '")';
+  // populate hidden form data
+  document.getElementById('channel-url').value = 'https://www.youtube.com/channel/' + YTinfo.id;
+  document.getElementById('channel-banner').value = YTinfo.brandingSettings.image.bannerTabletExtraHdImageUrl;
+  document.getElementById('channel-thumb').value = YTinfo.snippet.thumbnails.medium.url;
+  document.getElementById('channel-title').value = YTinfo.brandingSettings.channel.title;
+  document.getElementById('channel-description').value = YTinfo.brandingSettings.channel.description;
+  document.getElementById('channel-subs').value = YTinfo.statistics.subscriberCount;
+  document.getElementById('channel-views').value = YTinfo.statistics.viewCount;
 
-let trig = document.getElementById('trig');
 
-trig.addEventListener('click', function(){
-  makeApiCall();
-});
+
+
+
+}
+
+
+
+
+
+
+
 
 // Form handling
 

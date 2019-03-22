@@ -3,15 +3,12 @@
 </div>
 <div class="wrap flex">
     <main>
-        <h1>👏👏 {{ reviewData.channel }} review</h1>
+        <h1>👏👏 {{ reviewData.channelTitle }} review</h1>
         <ul class="review-meta">
-            <li><b>Name: </b> {{ reviewData.channel }}</li>
-            <li>{{ reviewData.chanURL }}</li>
-            <li><b>Rating: </b> {{ reviewData.score }}</li>
-            <li><b>Review by: </b> JustMe</li>
+            <li><b>Name: </b> {{ reviewData.channelTitle }}</li>
+            <li>{{ reviewData.channelUrl }}</li>
         </ul>
-        <p class="emph">{{ reviewData.title }}</p>
-        <p>{{ reviewData.content }}</p>
+        <p class="emph">{{ reviewData.channelTitle }}</p>
 
     </main>
     <aside class="sidebar" id="also">
