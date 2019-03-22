@@ -1,16 +1,21 @@
-<main>
-    <h1>👏👏 {{ reviewData.channel }} review</h1>
-    <ul class="review-meta">
-        <li><b>Name: </b> {{ reviewData.channel }}</li>
-        <li>{{ reviewData.chanURL }}</li>
-        <li><b>Rating: </b> {{ reviewData.score }}</li>
-        <li><b>Review by: </b> JustMe</li>
-    </ul>
-    <p class="emph">{{ reviewData.title }}</p>
-    <p>{{ reviewData.content }}</p>
+<div id="yt-banner">
 
-</main>
-<aside class="sidebar" id="also">
-    <h2>Also reviewed by</h2>
-    <p>Adding when have written support for unique users and logins</p>
-</aside>
+</div>
+<div class="wrap flex">
+    <main>
+        <h1>👏👏 {{ reviewData.channel }} review</h1>
+        <ul class="review-meta">
+            <li><b>Name: </b> {{ reviewData.channel }}</li>
+            <li>{{ reviewData.chanURL }}</li>
+            <li><b>Rating: </b> {{ reviewData.score }}</li>
+            <li><b>Review by: </b> JustMe</li>
+        </ul>
+        <p class="emph">{{ reviewData.title }}</p>
+        <p>{{ reviewData.content }}</p>
+
+    </main>
+    <aside class="sidebar" id="also">
+        <h2>Also reviewed by</h2>
+        <p>Adding when have written support for unique users and logins</p>
+    </aside>
+</div>

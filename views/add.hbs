@@ -1,32 +1,48 @@
-<main>
-    <h1>Add review</h1>
-    <form action="/review/add" method="POST">
-        <ul> 
-{{!-- fetch channel url or name depending on which is entered --}}
-            <li>
-                <label for="chanName">Channel name</label>        
-                <input type="text" name="chanName" minlength="6">
-            </li>
-            <li>
-                <label for="rating">Rating</label>
-                <input type="text" id="rating-score" name="ratingScore">
-            <li>
-                <label for="rating-title">Rating title</label>
-                <input type="text" id="rating-title" name="ratingTitle" minlength="2" maxlength="200">            
-            </li>
-            <li>
-                <label for="rating-content">Review</label>
-                <textarea id="rating-content" name="ratingContent" minlength="2" maxlength="200"></textarea>           
-            </li>
-            <li>
-                <input type="submit" value="Add review"></input>
-            </li>
-        </ul>
+<div id="review">
+    <div id="yt-banner">
+
+    </div>
+
+    <div class="wrap">
+        <h1>Add review</h1>
+        <p>Review a channel paste the URL in the box below</p>
+        <input id="chan">
+        <p id="chan-error"></p>
+    </div>
+
+    <div class="wrap flex">
+        <main>
+            <form action="/review/add" method="POST">
+                <ul> 
+        {{!-- fetch channel url or name depending on which is entered --}}
+                    <li>
+                        <input type="hidden" name="channel-url" id="channel-url" minlength="6">
+                    </li>
+                    <li>
+                        <label for="rating">Rating</label>
+                        <input type="text" id="rating-score" name="ratingScore">
+                    <li>
+                        <label for="rating-title">Rating title</label>
+                        <input type="text" id="rating-title" name="ratingTitle" minlength="2" maxlength="200">            
+                    </li>
+                    <li>
+                        <label for="rating-content">Review</label>
+                        <textarea id="rating-content" name="ratingContent" minlength="2" maxlength="200"></textarea>           
+                    </li>
+                    <li>
+                        <input type="submit" value="Add review"></input>
+                    </li>
+                </ul>
 
 
-    </form>
-</main>
-<aside class="sidebar" id="info">
-    <h2>Chan preview</h2>
-    <p>Derp de derpy de derp</p>
-</aside>
+            </form>
+        </main>
+        <aside class="sidebar" id="info">
+            <h2>Chan preview</h2>
+            <button id="trig">Trigger</button>
+            <br><br>
+            <button id="signin-button" onclick="handleSignInClick()">Sign In</button>
+            <button id="signout-button" onclick="handleSignOutClick()">Sign Out</button>
+        </aside>
+    </div>
+</div>

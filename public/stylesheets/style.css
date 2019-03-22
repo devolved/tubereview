@@ -207,34 +207,43 @@ footer {
   color: #555;
 }
 
-/* line 142, ../../sass/style.scss */
+/* line 139, ../../sass/style.scss */
+#yt-banner {
+  height: 175px;
+  background-color: green;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+/* line 150, ../../sass/style.scss */
 nav {
   background: #222;
 }
-/* line 145, ../../sass/style.scss */
+/* line 153, ../../sass/style.scss */
 nav a {
   font-weight: bolder;
   transition: color 300ms ease-in;
 }
-/* line 146, ../../sass/style.scss */
+/* line 154, ../../sass/style.scss */
 nav ul {
   margin: 0;
   padding: 0;
 }
 
 /* forms */
-/* line 153, ../../sass/style.scss */
+/* line 161, ../../sass/style.scss */
 form {
   border: 0;
   padding: 0;
   margin: 0;
 }
-/* line 156, ../../sass/style.scss */
+/* line 164, ../../sass/style.scss */
 form ul li {
   margin-bottom: 1.5rem;
 }
 
-/* line 159, ../../sass/style.scss */
+/* line 167, ../../sass/style.scss */
 label {
   display: block;
   font-weight: bolder;
@@ -243,7 +252,7 @@ label {
   margin-bottom: 0.5rem;
 }
 
-/* line 167, ../../sass/style.scss */
+/* line 175, ../../sass/style.scss */
 input, textarea {
   display: block;
   box-sizing: border-box;
@@ -254,7 +263,7 @@ input, textarea {
   color: #555;
 }
 
-/* line 177, ../../sass/style.scss */
+/* line 185, ../../sass/style.scss */
 button, input[type="submit"] {
   cursor: pointer;
   background: #8b1923;
@@ -262,50 +271,50 @@ button, input[type="submit"] {
   width: auto;
   padding: 0.5rem 1rem;
 }
-/* line 184, ../../sass/style.scss */
+/* line 192, ../../sass/style.scss */
 button:hover, input[type="submit"]:hover {
   background: #7acf18;
 }
 
 /* desktop */
 @media only screen and (min-width: 959px) {
-  /* line 193, ../../sass/style.scss */
+  /* line 201, ../../sass/style.scss */
   h1, h2, h3, h4, h5, h6 {
     font-size: 2em;
   }
 
-  /* line 198, ../../sass/style.scss */
+  /* line 206, ../../sass/style.scss */
   nav li {
     display: inline;
     margin-right: 1em;
   }
 
-  /* line 201, ../../sass/style.scss */
+  /* line 209, ../../sass/style.scss */
   .wrap {
     max-width: 1200px;
     padding: 3rem 0;
   }
 
-  /* line 206, ../../sass/style.scss */
+  /* line 214, ../../sass/style.scss */
   .flex {
     display: flex;
   }
 
-  /* line 210, ../../sass/style.scss */
+  /* line 218, ../../sass/style.scss */
   main {
     flex: 2 1 0;
     padding: 0;
     margin-right: 2rem;
   }
 
-  /* line 216, ../../sass/style.scss */
+  /* line 224, ../../sass/style.scss */
   aside {
     flex: 1 1 0;
     padding: 0;
     margin-left: 2rem;
   }
 
-  /* line 227, ../../sass/style.scss */
+  /* line 235, ../../sass/style.scss */
   ul.review-meta li {
     display: inline;
     margin-right: 1rem;

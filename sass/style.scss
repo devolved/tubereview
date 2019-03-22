@@ -136,7 +136,15 @@ ul.review-meta {
 
 }
 
-
+#yt-banner {
+    height: 175px;
+    background: {
+        color: green;
+        size: cover;
+        position: center top;
+        repeat: no-repeat;
+    }
+}
 
 // all nav
 nav {
