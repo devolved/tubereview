@@ -11,16 +11,16 @@ router.get('/add', function(req, res, next) {
 
 
 // show review on nav
-router.get('/:channelTitle', function(req, res, next) {
+router.get('/:ratingUrl', function(req, res, next) {
 
-  if (req.params.channelTitle != 'add') {
+  if (req.params.ratingUrl != 'add') {
    var reviewData = {};  
 
     MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
       if (err) { return console.log('Unable to connect to MongoDB'); } 
 
       //get result from db     
-      client.db('tube').collection('channel-reviews').find({'channelTitle': req.params.channelTitle}).toArray(function(err, result) {
+      client.db('tube').collection('channel-reviews').find({'ratingUrl': req.params.ratingUrl}).toArray(function(err, result) {
         if (err) throw err;
         
         reviewData = result[0];
@@ -54,6 +54,7 @@ router.post('/add', function(req, res, next) {
         channelDescription: req.body.channelDescription,
         channelSubs: req.body.channelSubs,
         channelViews: req.body.channelViews,
+        ratingUrl: req.body.ratingUrl,
         ratingScore: req.body.ratingScore,
         ratingTitle: req.body.ratingTitle,
         ratingContent: req.body.ratingContent
@@ -70,7 +71,7 @@ router.post('/add', function(req, res, next) {
       });
 
       client.close();
-      res.redirect('../review/' + review.channelTitle);
+      res.redirect('../review/' + review.ratingUrl);
 
     });
 

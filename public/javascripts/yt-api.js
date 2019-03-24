@@ -40,13 +40,20 @@ document.getElementById('chan').addEventListener('change', function(){
   if(YTchannel.length == 24) {
 
     document.getElementById('chan-error').innerHTML = '';
+    this.classList.add('valid')
+    this.classList.remove('invalid');
     makeApiCall(YTchannel);
   } else if (YTchannel.length == 56) {
     YTchannel = YTchannel.substring(32, 56);
     document.getElementById('chan-error').innerHTML = '';
+    this.classList.add('valid')
+    this.classList.remove('invalid');
     makeApiCall(YTchannel);
   } else {
     document.getElementById('chan-error').innerHTML = 'Please enter a valid channel URL';
+    this.classList.add('invalid')
+    this.classList.remove('valid');
+    document.getElementById('review').classList.remove('show');
   };
 
 });
@@ -81,9 +88,12 @@ function populatePage(YTinfo){
   document.getElementById('channel-subs').value = YTinfo.statistics.subscriberCount;
   document.getElementById('channel-views').value = YTinfo.statistics.viewCount;
 
+  // create rating url
+  let urlArray = YTinfo.brandingSettings.channel.title.split(" ");
+  document.getElementById('rating-url').value = urlArray.join('-').toLowerCase();
 
-
-
+  // show form and banner
+  document.getElementById('review').classList.add('show');
 
 }
 

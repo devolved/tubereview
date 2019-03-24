@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
     if (err) { return console.log('Unable to connect to MongoDB'); } 
 
     //get result from db     
-    client.db('tube').collection('channel-reviews').find({}).limit(10).sort({ $natural: -1 }).toArray(function(err, result) {
+    client.db('tube').collection('channel-reviews').find({}).limit(5).sort({ $natural: -1 }).toArray(function(err, result) {
       if (err) throw err;
 
       client.close();

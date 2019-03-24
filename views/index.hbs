@@ -1,6 +1,4 @@
-<div id="yt-banner">
-
-</div>
+<div id="yt-wrap"><div id="yt-banner"></div></div>
 <div class="wrap flex">
     <main>
         <h1>{{ title }}</h1>
@@ -11,9 +9,9 @@
         <ul class="latest-home">
         {{#each result}}
             <li>
-                <a href="/review/{{ this.channel }}">
-                    {{ this.channel }}
-                    <span>{{ this.title }}</span>
+                <a href="/review/{{ this.ratingUrl }}">
+                    {{ this.channelTitle }}
+                    <span>{{ this.ratingTitle }}</span>
                 </a>
             </li>
         {{/each}}

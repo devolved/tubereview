@@ -11,7 +11,12 @@ $col2: #8b1923;
 $bg: #222;
 $text: #555;
 $grey-light: #ccc;
+$red: #e52b2b;
+$green: #76ea70;
+
 $textshadow: 1px 1px 1px rgba(0,0,0,0.6);
+
+
 
 article, aside, div, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
     display: block; box-sizing: border-box;
@@ -71,7 +76,15 @@ img {
 
 #outer { text-align: left; margin: 0 auto; }
 
+// all nav
+nav {
+    background: $bg;
 
+    a { font-weight: bolder; transition: color 300ms ease-in; }
+    ul { margin: 0; padding: 0; }
+    li { }
+
+}
 
 // content blocks
 .flex { display: block; }
@@ -136,25 +149,47 @@ ul.review-meta {
 
 }
 
+// add review page
+
+#review {
+    #yt-wrap { padding: 0; overflow: hidden; transition: padding 1s ease-in 1s; }
+    #sleeve { opacity: 0; transition: opacity 1s ease-in 1s }
+}
+
+#review.show { 
+    #yt-wrap { padding-bottom: 16%; }
+    #sleeve { opacity: 1; }
+}
+
+
+#yt-wrap {
+    width: 100%;
+    position: relative;
+    padding-bottom: 16%;
+}
 #yt-banner {
-    height: 175px;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
     background: {
-        color: green;
-        size: cover;
-        position: center top;
+        color: #fff;
+        size: 100% auto;
+        position: center center;
         repeat: no-repeat;
     }
 }
 
-// all nav
-nav {
-    background: $bg;
+#chan-wrap { margin: 1rem auto 0 auto; width: 85%; }
 
-    a { font-weight: bolder; transition: color 300ms ease-in; }
-    ul { margin: 0; padding: 0; }
-    li { }
-
+#chan {
+    padding: 1rem;
+    font-size: 1.4em;
+    border: 2px dashed $text;
 }
+#chan.valid { color: $green; border-color: $green; }
+#chan.invalid { color: $red; border-color: $red; }
+#chan-error { color: $red; font-weight: bolder; text-transform: uppercase; }
+
+
 
 /* forms */
 
@@ -181,6 +216,7 @@ input, textarea {
     font-size: 1.5rem;
     color: $text;
 }
+input:focus, textarea:focus { outline: none; }
 
 button, input[type="submit"] {
     cursor: pointer;
@@ -203,6 +239,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 nav { 
+    .wrap { padding: 2rem 0; }
     li { display: inline; margin-right: 1em; }
 }
 

@@ -1,58 +1,66 @@
 <div id="review">
-    <div id="yt-banner">
-
-    </div>
+    <div id="yt-wrap"><div id="yt-banner"></div></div>
 
     <div class="wrap">
         <h1>Add review</h1>
         <p>Review a channel paste the URL in the box below</p>
-        <input id="chan">
-        <p id="chan-error"></p>
+        <div id="chan-wrap">
+            <input id="chan">
+            <p id="chan-error"></p>
+        </div>
     </div>
 
-    <div class="wrap flex">
-        <main>
-            <form action="/review/add" method="POST">
-                <ul> 
-        {{!-- fetch channel url or name depending on which is entered --}}
+    <div id="sleeve">
+        <div class="wrap flex">
+            <main>
+                <form action="/review/add" method="POST">
+                    <ul> 
+            {{!-- fetch channel url or name depending on which is entered --}}
 
-                    <li>
-                        <label for="rating">Rating</label>
-                        <input type="text" id="rating-score" name="ratingScore">
-                    <li>
-                        <label for="rating-title">Rating title</label>
-                        <input type="text" id="rating-title" name="ratingTitle" minlength="2" maxlength="200">            
-                    </li>
-                    <li>
-                        <label for="rating-content">Review</label>
-                        <textarea id="rating-content" name="ratingContent" minlength="2" maxlength="200"></textarea>           
-                    </li>
-                    <li>
-                        <input type="hidden" id="channel-title" name="channelTitle">
-                        <input type="hidden" id="channel-url" name="channelUrl">
-                        <input type="hidden" id="channel-banner" name="channelBanner">
-                        <input type="hidden" id="channel-thumb" name="channelThumb">
-                        <input type="hidden" id="channel-description" name="channelDescription">
-                        <input type="hidden" id="channel-subs" name="channelSubs">
-                        <input type="hidden" id="channel-views" name="channelViews">
- 
- 
-                    </li>                    
-                    <li>
-                        <input type="submit" value="Add review"></input>
-                    </li>
-                </ul>
-
-
-            </form>
-        </main>
-        <aside class="sidebar" id="info">
-            <h2>Chan preview</h2>
+                        <li>
+                            <label for="rating">Rating</label>
+                            <input type="text" id="rating-score" name="ratingScore">
+                        <li>
+                            <label for="rating-title">Rating title</label>
+                            <input type="text" id="rating-title" name="ratingTitle" minlength="2" maxlength="200">            
+                        </li>
+                        <li>
+                            <label for="rating-content">Review</label>
+                            <textarea id="rating-content" name="ratingContent" minlength="2" maxlength="200"></textarea>           
+                        </li>
+                        <li>
+                            <input type="hidden" id="rating-url" name="ratingUrl">
+                            <input type="hidden" id="channel-title" name="channelTitle">
+                            <input type="hidden" id="channel-url" name="channelUrl">
+                            <input type="hidden" id="channel-banner" name="channelBanner">
+                            <input type="hidden" id="channel-thumb" name="channelThumb">
+                            <input type="hidden" id="channel-description" name="channelDescription">
+                            <input type="hidden" id="channel-subs" name="channelSubs">
+                            <input type="hidden" id="channel-views" name="channelViews">
+    
+    
+                        </li>                    
+                        <li>
+                            <input type="submit" value="Add review"></input>
+                        </li>
+                    </ul>
 
 
-            <br><br>
-            <button id="signin-button" onclick="handleSignInClick()">Sign In</button>
-            <button id="signout-button" onclick="handleSignOutClick()">Sign Out</button>
-        </aside>
+                </form>
+            </main>
+            <aside class="sidebar" id="info">
+                <h2>Chan preview</h2>
+
+
+                <br><br>
+                <button id="signin-button" onclick="handleSignInClick()">Sign In</button>
+                <button id="signout-button" onclick="handleSignOutClick()">Sign Out</button>
+            </aside>
+        </div>
     </div>
 </div>
+<script src="/javascripts/yt-api.js"></script>
+<script async defer src="https://apis.google.com/js/api.js"
+    onload="this.onload=function(){};handleClientLoad()"
+    onreadystatechange="if (this.readyState === 'complete') this.onload()">
+</script>
