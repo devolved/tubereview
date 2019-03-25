@@ -79,12 +79,16 @@ function makeApiCall(YTchannel) {
 function populatePage(YTinfo){
   // set banner img
   document.getElementById('yt-banner').style.backgroundImage='url("' + YTinfo.brandingSettings.image.bannerTabletExtraHdImageUrl + '")';
+
+  // process chan description to <p>
+  let chanDescription = formatToP(YTinfo.brandingSettings.channel.description);
+
   // populate hidden form data
   document.getElementById('channel-url').value = 'https://www.youtube.com/channel/' + YTinfo.id;
   document.getElementById('channel-banner').value = YTinfo.brandingSettings.image.bannerTabletExtraHdImageUrl;
   document.getElementById('channel-thumb').value = YTinfo.snippet.thumbnails.medium.url;
   document.getElementById('channel-title').value = YTinfo.brandingSettings.channel.title;
-  document.getElementById('channel-description').value = YTinfo.brandingSettings.channel.description;
+  document.getElementById('channel-description').value = chanDescription;
   document.getElementById('channel-subs').value = YTinfo.statistics.subscriberCount;
   document.getElementById('channel-views').value = YTinfo.statistics.viewCount;
 
@@ -92,10 +96,40 @@ function populatePage(YTinfo){
   let urlArray = YTinfo.brandingSettings.channel.title.split(" ");
   document.getElementById('rating-url').value = urlArray.join('-').toLowerCase();
 
+  // populate channel preview
+  document.getElementById('prev-heading').innerHTML = YTinfo.brandingSettings.channel.title;
+  document.getElementById('prev-thumb').style.backgroundImage='url("' + YTinfo.snippet.thumbnails.medium.url + '")';
+  document.getElementById('prev-desc').innerHTML = chanDescription;
+
+
   // show form and banner
   document.getElementById('review').classList.add('show');
 
+
 }
+
+// format preserving single line breaks
+function formatText(text) {
+  let t = text;
+  t = t.replace(/\r\n\r\n/g, '</p><p>');
+  t = t.replace(/\r\n/g, '<br>');
+  t = '<p>' + t + '</p>';
+  return t;
+
+}
+
+
+// change to <p> formatted
+function formatToP(text) {
+  let t = text;
+  t = t.match(/[^\r\n\r\n]+/g).join('</p><p>');
+  t = '<p>' + t + '</p>';
+  
+  return t;
+}
+
+
+
 
 
 

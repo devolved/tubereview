@@ -12,7 +12,7 @@
 
     <div id="sleeve">
         <div class="wrap flex">
-            <main>
+            <main class="f2">
                 <form action="/review/add" method="POST">
                     <ul> 
             {{!-- fetch channel url or name depending on which is entered --}}
@@ -48,13 +48,18 @@
 
                 </form>
             </main>
-            <aside class="sidebar" id="info">
-                <h2>Chan preview</h2>
-
+            <aside class="sidebar" id="prev-info">
+                <div class="flex mbottom">
+                    <div id="prev-thumb"></div>
+                    <div id="prev-heading">Chan preview</div>
+                </div>
+                <div id="prev-desc"></div>
 
                 <br><br>
-                <button id="signin-button" onclick="handleSignInClick()">Sign In</button>
-                <button id="signout-button" onclick="handleSignOutClick()">Sign Out</button>
+                <div class="hide">
+                    <button id="signin-button" onclick="handleSignInClick()">Sign In</button>
+                    <button id="signout-button" onclick="handleSignOutClick()">Sign Out</button>
+                </div>
             </aside>
         </div>
     </div>
