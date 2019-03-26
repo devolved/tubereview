@@ -108,21 +108,10 @@ function populatePage(YTinfo){
 
 }
 
-// format preserving single line breaks
-function formatText(text) {
-  let t = text;
-  t = t.replace(/\r\n\r\n/g, '</p><p>');
-  t = t.replace(/\r\n/g, '<br>');
-  t = '<p>' + t + '</p>';
-  return t;
-
-}
-
-
-// change to <p> formatted
+// // change to <p> formatted
 function formatToP(text) {
   let t = text;
-  t = t.match(/[^\r\n\r\n]+/g).join('</p><p>');
+  t = t.match(/[^\r\n]+/g).join('</p><p>');
   t = '<p>' + t + '</p>';
   
   return t;
