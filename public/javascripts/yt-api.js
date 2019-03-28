@@ -22,8 +22,7 @@ function updateSigninStatus(isSignedIn) {
   // When signin status changes, this function is called.
   // If the signin status is changed to signedIn, we make an API call.
   if (isSignedIn) {
-    //makeApiCall();
-    console.log(isSignedIn);
+    //console.log(isSignedIn);
   }
 }
 
@@ -32,8 +31,6 @@ function handleSignInClick(event) { gapi.auth2.getAuthInstance().signIn(); }
 function handleSignOutClick(event) { gapi.auth2.getAuthInstance().signOut(); }
 
 // Process YT channel URL
-// https://www.youtube.com/channel/UCnQC_G5Xsjhp9fEJKuIcrSw
-
 document.getElementById('chan').addEventListener('change', function(){
   let YTchannel = this.value.trim();
   
@@ -68,9 +65,6 @@ function makeApiCall(YTchannel) {
     'id': YTchannel
   }).then(function(response) {
     let YTinfo = response.result.items[0];
-
-    console.log(YTinfo);
-
     populatePage(YTinfo);
   });
   
@@ -97,6 +91,10 @@ function populatePage(YTinfo){
   document.getElementById('rating-url').value = urlArray.join('-').toLowerCase();
 
   // populate channel preview
+  if (YTinfo.brandingSettings.channel.title.length > 18) {
+    document.getElementById('prev-heading').classList.add('long-title');
+  }
+
   document.getElementById('prev-heading').innerHTML = YTinfo.brandingSettings.channel.title;
   document.getElementById('prev-thumb').style.backgroundImage='url("' + YTinfo.snippet.thumbnails.medium.url + '")';
   document.getElementById('prev-desc').innerHTML = chanDescription;
@@ -108,26 +106,14 @@ function populatePage(YTinfo){
 
 }
 
-// // change to <p> formatted
+// change to <p> formatted
 function formatToP(text) {
   let t = text;
   t = t.match(/[^\r\n]+/g).join('</p><p>');
   t = '<p>' + t + '</p>';
-  
+
   return t;
 }
-
-
-
-
-
-
-
-
-
-
-
-// Form handling
 
 
 

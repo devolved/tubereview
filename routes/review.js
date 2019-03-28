@@ -6,7 +6,7 @@ var url = 'mongodb://localhost:27017/tube';
 
 // add review
 router.get('/add', function(req, res, next) {
-  res.render('add');
+  res.render('add', {title: 'Add a review'});
 });
 
 
@@ -31,7 +31,7 @@ router.get('/:ratingUrl', function(req, res, next) {
         if (result[0] === undefined) {
           res.redirect('/review/add');
         } else {
-          res.render('review', {reviewData});
+          res.render('review', {title: reviewData.channelTitle, reviewData}, );
         }
 
       });
@@ -46,34 +46,41 @@ router.get('/:ratingUrl', function(req, res, next) {
 // submit review
 router.post('/add', function(req, res, next) {
 
-    var review = {
-        channelTitle: req.body.channelTitle,
-        channelUrl: req.body.channelUrl,
-        channelBanner: req.body.channelBanner,
-        channelThumb: req.body.channelThumb,
-        channelDescription: req.body.channelDescription,
-        channelSubs: req.body.channelSubs,
-        channelViews: req.body.channelViews,
-        ratingUrl: req.body.ratingUrl,
-        ratingScore: req.body.ratingScore,
-        ratingTitle: req.body.ratingTitle,
-        ratingContent: req.body.ratingContent
-    };
+  // change to <p> formatted
+  let t = req.body.ratingContent;
+  t = t.match(/[^\r\n]+/g).join('</p><p>');
+  t = '<p>' + t + '</p>';
 
-    MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
 
-      if (err) { return console.log('Unable to connect to MongoDB'); } 
 
-      client.db('tube').collection('channel-reviews').insertOne(review, (err, result) => {
-        
-        if (err) { return console.log('Not inserted', err); }
+  var review = {
+      channelTitle: req.body.channelTitle,
+      channelUrl: req.body.channelUrl,
+      channelBanner: req.body.channelBanner,
+      channelThumb: req.body.channelThumb,
+      channelDescription: req.body.channelDescription,
+      channelSubs: req.body.channelSubs,
+      channelViews: req.body.channelViews,
+      ratingUrl: req.body.ratingUrl,
+      ratingScore: req.body.ratingScore,
+      ratingTitle: req.body.ratingTitle,
+      ratingContent: t
+  };
 
-      });
+  MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
 
-      client.close();
-      res.redirect('../review/' + review.ratingUrl);
+    if (err) { return console.log('Unable to connect to MongoDB'); } 
+
+    client.db('tube').collection('channel-reviews').insertOne(review, (err, result) => {
+      
+      if (err) { return console.log('Not inserted', err); }
 
     });
+
+    client.close();
+    res.redirect('../review/' + review.ratingUrl);
+
+  });
 
 });
 

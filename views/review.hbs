@@ -1,16 +1,27 @@
 <div id="yt-wrap"><div id="yt-banner" style="background-image: url('{{reviewData.channelBanner}}')"></div></div>
 <div class="wrap flex">
     <main>
-        <h1>👏👏 {{ reviewData.channelTitle }} review</h1>
+        <h1>{{ reviewData.channelTitle }} review</h1>
         <ul class="review-meta">
-            <li><b>Name: </b> {{ reviewData.channelTitle }}</li>
-            <li>{{ reviewData.channelUrl }}</li>
+            <li><b>Subs:</b> {{ reviewData.channelSubs }}</li>
+            <li><b>Views:</b> {{ reviewData.channelViews }}</li>
+            <li><a href="{{ reviewData.channelUrl }}" class="external">Visit channel</a></li>
         </ul>
-        <p class="emph">{{ reviewData.channelTitle }}</p>
+        <h2>{{ reviewData.ratingTitle }} </h2>
+        <div class="emph">{{{ reviewData.ratingContent }}}</div>
 
     </main>
-    <aside class="sidebar" id="also">
-        <h2>Also reviewed by</h2>
-        <p>Adding when have written support for unique users and logins</p>
+    <aside class="sidebar" id="prev-info">
+        <div class="flex mbottom">
+            <div id="prev-thumb" style="background-image: url('{{ reviewData.channelThumb }}')"></div>
+            <div id="prev-heading">{{ reviewData.channelTitle }}</div>
+        </div>
+        <div id="prev-desc">{{{ reviewData.channelDescription }}}</div>
+
+        <br><br>
+        <div class="hide">
+            <button id="signin-button" onclick="handleSignInClick()">Sign In</button>
+            <button id="signout-button" onclick="handleSignOutClick()">Sign Out</button>
+        </div>
     </aside>
 </div>

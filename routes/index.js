@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
       client.close();
 
       //output page
-    res.render('index', { title: 'Tube Review', result });
+    res.render('index', { title: '👏👏', result });
 
     });
   });
