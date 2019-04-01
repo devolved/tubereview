@@ -1,27 +1,27 @@
 <div id="yt-wrap"><div id="yt-banner" style="background-image: url('{{reviewData.[0].channelBanner}}')"></div></div>
 <div class="wrap flex">
     <main>
-        <h1>{{ reviewData.[0].channelTitle }} review</h1>
-        <ul class="review-meta">
-            <li><b>Subs:</b> {{ reviewData.channelSubs }}</li>
-            <li><b>Views:</b> {{ reviewData.channelViews }}</li>
-            <li><a href="{{ reviewData.channelUrl }}" class="external">Visit channel</a></li>
-        </ul>
+        <h1>{{reviewData.[0].channelTitle}} review</h1>
 
-        {{#each reviewData}}
-        <h2>{{ this.ratingTitle }} </h2>
-        <div class="emph">{{{ this.ratingContent }}}</div>
-        {{/each}}
+
+        <section>
+            {{#each reviewData}}
+            <article class="review">
+                <h2>{{this.ratingTitle}}</h2>
+                {{{this.ratingContent}}}
+            </article>
+            {{/each}}
+        </section>
     </main>
     <aside class="sidebar" id="prev-info">
         <div class="flex mbottom">
-            <div id="prev-thumb" style="background-image: url('{{ reviewData.[0].channelThumb }}')"></div>
-            <div id="prev-heading">{{ reviewData.[0].channelTitle }}</div>
+            <div id="prev-thumb" style="background-image: url('{{reviewData.[0].channelThumb}}')"></div>
+            <div id="prev-heading"><a href="https://www.youtube.com/channel/{{reviewData.[0].channelId}}?sub_confirmation=1" id="subs" class="button subscribe">Subscribe</a></div>
         </div>
-        <div id="prev-desc">{{{ reviewData.[0].channelDescription }}}</div>
-
-        <br><br>
+        <div id="prev-desc">{{{reviewData.[0].channelDescription}}}</div>
+        
         <div class="hide">
+            <div id="chanID">{{reviewData.[0].channelId}}</div>
             <button id="signin-button" onclick="handleSignInClick()">Sign In</button>
             <button id="signout-button" onclick="handleSignOutClick()">Sign Out</button>
         </div>

@@ -22,10 +22,9 @@ router.get('/:ratingUrl', function(req, res, next) {
       //get result from db     
       client.db('tube').collection('channel-reviews').find({'ratingUrl': req.params.ratingUrl}).toArray(function(err, result) {
         if (err) throw err;
-           console.log( typeof(result));
      
-          reviewData = result;
-          client.close();
+        reviewData = result;
+        client.close();
 
         // check a review exists
         if (result[0] === undefined) {

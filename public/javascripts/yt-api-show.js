@@ -23,6 +23,7 @@ function updateSigninStatus(isSignedIn) {
   // If the signin status is changed to signedIn, we make an API call.
   if (isSignedIn) {
     console.log(isSignedIn);
+    makeApiCall(YTchannel);
   }
 }
 
@@ -30,7 +31,7 @@ function updateSigninStatus(isSignedIn) {
 function handleSignInClick(event) { gapi.auth2.getAuthInstance().signIn(); }
 function handleSignOutClick(event) { gapi.auth2.getAuthInstance().signOut(); }
 
-
+let YTchannel = document.getElementById('chanID').innerHTML;
 
 function makeApiCall(YTchannel) {
     const YTinfo = {};
@@ -40,7 +41,25 @@ function makeApiCall(YTchannel) {
       'id': YTchannel
     }).then(function(response) {
       let YTinfo = response.result.items[0];
-      populatePage(YTinfo);
+      populateMeta(YTinfo);
     });
     
-  }
+}
+
+function populateMeta(YTinfo) {
+
+    let subs = document.getElementById('subs');
+    let count = parseInt(YTinfo.statistics.subscriberCount, 10);
+
+    if (count < 1000) {
+        subs.innerHTML = "Subscribe " + count;
+    } else if (count > 1000000) {
+        let x = (count / 1000000).toFixed(1);
+        subs.innerHTML = "Subscribe " + x.toString() + "m";
+    } else {
+        let x = Math.floor(count / 1000);
+        subs.innerHTML = "Subscribe " + x.toString() + "k";
+    }
+
+}
+

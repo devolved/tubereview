@@ -87,6 +87,24 @@ img {
 
 #outer { text-align: left; margin: 0 auto; }
 
+.button, button, input[type="submit"] {
+    background-color: $col1;
+    border-radius: 0.2em;
+    color: #fff;
+    padding: 1em;
+    white-space: nowrap;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: .007px;
+    text-transform: uppercase;
+}
+
+.button.subscribe { 
+    background: #f00; 
+    padding: 0.625em 0.875em;
+    &:hover { color: #fff; }
+}
+
 // all nav
 nav {
     background: $bg;
@@ -172,7 +190,6 @@ ul.review-meta {
     #sleeve { opacity: 1; }
 }
 
-
 #yt-wrap {
     width: 100%;
     position: relative;
@@ -204,13 +221,14 @@ ul.review-meta {
 
     #prev-heading { 
         line-height: 75px;
-        padding-left: 1rem;
+        padding-left: 2rem;
         font-family: 'Pragati Narrow', 'Arial', sans-serif;
         font: {
             size: 2.2em;
             weight: bolder;
         }
         color: $col2;
+        flex-grow: 1;
     }
 
     #prev-heading.long-title { font-size: 1.2em; }
@@ -239,6 +257,24 @@ ul.review-meta {
     }
 }
 
+.review {
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+    border-top: 1px dotted $grey-light;
+
+    &:first-child { border-top: 0; }
+
+    h2 { 
+        font: {
+            size: 1.5em;
+            weight: 600;
+        }
+        margin-bottom: 4px;
+        text-transform: uppercase;
+    }
+
+}
+
 /* forms */
 
 form {
@@ -265,18 +301,6 @@ input, textarea {
     color: $text;
 }
 input:focus, textarea:focus { outline: none; }
-
-button, input[type="submit"] {
-    cursor: pointer;
-    background: $col2;
-    display: inline-block;
-    width: auto;
-    padding: 0.5rem 1rem;
-
-    &:hover {
-        background: $col1;
-    }
-}
 
 
 /* desktop */
@@ -321,12 +345,8 @@ aside {
 
 // review page 
 
-ul.review-meta {
 
-    li { display: inline; margin-right: 1rem; }
-    
 
-}
 
 
 
