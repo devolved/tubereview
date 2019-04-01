@@ -22,10 +22,10 @@ router.get('/:ratingUrl', function(req, res, next) {
       //get result from db     
       client.db('tube').collection('channel-reviews').find({'ratingUrl': req.params.ratingUrl}).toArray(function(err, result) {
         if (err) throw err;
-        
-        reviewData = result[0];
-        console.log(reviewData);
-        client.close();
+           console.log( typeof(result));
+     
+          reviewData = result;
+          client.close();
 
         // check a review exists
         if (result[0] === undefined) {
@@ -51,16 +51,12 @@ router.post('/add', function(req, res, next) {
   t = t.match(/[^\r\n]+/g).join('</p><p>');
   t = '<p>' + t + '</p>';
 
-
-
   var review = {
       channelTitle: req.body.channelTitle,
-      channelUrl: req.body.channelUrl,
+      channelId: req.body.channelId,
       channelBanner: req.body.channelBanner,
       channelThumb: req.body.channelThumb,
       channelDescription: req.body.channelDescription,
-      channelSubs: req.body.channelSubs,
-      channelViews: req.body.channelViews,
       ratingUrl: req.body.ratingUrl,
       ratingScore: req.body.ratingScore,
       ratingTitle: req.body.ratingTitle,

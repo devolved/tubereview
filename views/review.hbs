@@ -1,22 +1,24 @@
-<div id="yt-wrap"><div id="yt-banner" style="background-image: url('{{reviewData.channelBanner}}')"></div></div>
+<div id="yt-wrap"><div id="yt-banner" style="background-image: url('{{reviewData.[0].channelBanner}}')"></div></div>
 <div class="wrap flex">
     <main>
-        <h1>{{ reviewData.channelTitle }} review</h1>
+        <h1>{{ reviewData.[0].channelTitle }} review</h1>
         <ul class="review-meta">
             <li><b>Subs:</b> {{ reviewData.channelSubs }}</li>
             <li><b>Views:</b> {{ reviewData.channelViews }}</li>
             <li><a href="{{ reviewData.channelUrl }}" class="external">Visit channel</a></li>
         </ul>
-        <h2>{{ reviewData.ratingTitle }} </h2>
-        <div class="emph">{{{ reviewData.ratingContent }}}</div>
 
+        {{#each reviewData}}
+        <h2>{{ this.ratingTitle }} </h2>
+        <div class="emph">{{{ this.ratingContent }}}</div>
+        {{/each}}
     </main>
     <aside class="sidebar" id="prev-info">
         <div class="flex mbottom">
-            <div id="prev-thumb" style="background-image: url('{{ reviewData.channelThumb }}')"></div>
-            <div id="prev-heading">{{ reviewData.channelTitle }}</div>
+            <div id="prev-thumb" style="background-image: url('{{ reviewData.[0].channelThumb }}')"></div>
+            <div id="prev-heading">{{ reviewData.[0].channelTitle }}</div>
         </div>
-        <div id="prev-desc">{{{ reviewData.channelDescription }}}</div>
+        <div id="prev-desc">{{{ reviewData.[0].channelDescription }}}</div>
 
         <br><br>
         <div class="hide">
@@ -25,3 +27,8 @@
         </div>
     </aside>
 </div>
+<script src="/javascripts/yt-api-show.js"></script>
+<script async defer src="https://apis.google.com/js/api.js"
+    onload="this.onload=function(){};handleClientLoad()"
+    onreadystatechange="if (this.readyState === 'complete') this.onload()">
+</script>

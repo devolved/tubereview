@@ -22,7 +22,7 @@ function updateSigninStatus(isSignedIn) {
   // When signin status changes, this function is called.
   // If the signin status is changed to signedIn, we make an API call.
   if (isSignedIn) {
-    //console.log(isSignedIn);
+    console.log(isSignedIn);
   }
 }
 
@@ -55,13 +55,11 @@ document.getElementById('chan').addEventListener('change', function(){
 
 });
 
-
-
 function makeApiCall(YTchannel) {
   const YTinfo = {};
   // Make an API call
   gapi.client.youtube.channels.list({
-    'part': 'snippet,statistics,brandingSettings',
+    'part': 'snippet,brandingSettings',
     'id': YTchannel
   }).then(function(response) {
     let YTinfo = response.result.items[0];
@@ -73,18 +71,21 @@ function makeApiCall(YTchannel) {
 function populatePage(YTinfo){
   // set banner img
   document.getElementById('yt-banner').style.backgroundImage='url("' + YTinfo.brandingSettings.image.bannerTabletExtraHdImageUrl + '")';
-
-  // process chan description to <p>
-  let chanDescription = formatToP(YTinfo.brandingSettings.channel.description);
+  
+  // process chan description to <p> + handle null
+  let chanDescription = "";
+  if(YTinfo.snippet.description.length == 0) {
+    chanDescription = "No description available";
+  } else {
+    chanDescription = formatToP(YTinfo.snippet.description);
+  }
 
   // populate hidden form data
-  document.getElementById('channel-url').value = 'https://www.youtube.com/channel/' + YTinfo.id;
+  document.getElementById('channel-id').value = YTinfo.id;
   document.getElementById('channel-banner').value = YTinfo.brandingSettings.image.bannerTabletExtraHdImageUrl;
   document.getElementById('channel-thumb').value = YTinfo.snippet.thumbnails.medium.url;
   document.getElementById('channel-title').value = YTinfo.brandingSettings.channel.title;
   document.getElementById('channel-description').value = chanDescription;
-  document.getElementById('channel-subs').value = YTinfo.statistics.subscriberCount;
-  document.getElementById('channel-views').value = YTinfo.statistics.viewCount;
 
   // create rating url
   let urlArray = YTinfo.brandingSettings.channel.title.split(" ");
@@ -99,10 +100,8 @@ function populatePage(YTinfo){
   document.getElementById('prev-thumb').style.backgroundImage='url("' + YTinfo.snippet.thumbnails.medium.url + '")';
   document.getElementById('prev-desc').innerHTML = chanDescription;
 
-
   // show form and banner
   document.getElementById('review').classList.add('show');
-
 
 }
 
@@ -114,11 +113,3 @@ function formatToP(text) {
 
   return t;
 }
-
-
-
-
-
-
-
-
