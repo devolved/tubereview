@@ -1,20 +1,21 @@
-<div id="yt-wrap"><div id="yt-banner"></div></div>
-<div class="wrap flex">
-    <main>
-        <h1>{{ title }}</h1>
-        <p>Welcome to <b>{{ title }}</b> a YouTube channel review site</p>
-    </main>
-    <aside>
-        <h2>Latest reviews</h2>
-        <ul class="latest-home">
-        {{#each result}}
-            <li>
-                <a href="/review/{{ this.ratingUrl }}">
-                    {{ this.channelTitle }}
-                    <span>{{ this.ratingTitle }}</span>
-                </a>
-            </li>
-        {{/each}}
-        </ul>
-    </aside>
+<div id="home">
+    <div class="wrap flex">
+        <main>
+            <h1>{{ title }}</h1>
+            <p>YouTube channel review site</p>
+        </main>
+        <aside>
+            <h2>Latest reviews</h2>
+            <ul class="latest-home">
+            {{#each result}}
+                <li>
+                    <a href="/review/{{ this.ratingUrl }}">
+                        {{ this.channelTitle }}
+                        <span>{{ this.ratingTitle }}</span>
+                    </a>
+                </li>
+            {{/each}}
+            </ul>
+        </aside>
+    </div>
 </div>

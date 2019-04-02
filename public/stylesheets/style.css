@@ -23,7 +23,7 @@ ul, ol {
 html, body {
   margin: 0;
   padding: 0;
-  color: #363636;
+  color: #262626;
   text-align: left;
   font-size: 16px;
   line-height: 1;
@@ -32,23 +32,25 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: none;
   -ms-text-size-adjust: 100%;
-  font-family: "Roboto", "Arial", sans-serif;
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 
 a {
   text-decoration: none;
-  color: #7ac722;
+  color: #4A306D;
 }
 a:hover, a:active, a:focus {
-  color: #a00d0d;
+  color: #A167A5;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Pragati Narrow", "Roboto", "Arial", sans-serif;
+  font-family: "Poppins", "Helvetica", "Arial", sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
   margin: 0 0 1rem 0;
   padding: 0;
-  font-size: 3em;
-  color: #a00d0d;
+  font-size: 2.8em;
+  color: #A167A5;
 }
 
 p {
@@ -98,20 +100,23 @@ img {
 }
 
 .button, button, input[type=submit] {
-  background-color: #7ac722;
+  background-color: #4A306D;
   border-radius: 0.2em;
   color: #fff;
   padding: 1em;
   white-space: nowrap;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: bolder;
   letter-spacing: 0.007px;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .button.subscribe {
   background: #f00;
   padding: 0.625em 0.875em;
+  font-weight: 500;
+  font-family: "Roboto", "Arial", sans-serif;
 }
 .button.subscribe:hover {
   color: #fff;
@@ -119,10 +124,18 @@ img {
 
 nav {
   background: #222;
+  color: #404040;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+  font-family: "Poppins", "Helvetica", "Arial", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 nav a {
   font-weight: bolder;
   transition: color 300ms ease-in;
+}
+nav a:hover {
+  color: #EFCB68;
 }
 nav ul {
   margin: 0;
@@ -138,23 +151,42 @@ main, aside {
 }
 
 aside.sidebar {
-  border: 1px solid #dddddd;
+  border: 1px solid #A3A9AA;
   border-radius: 1rem;
   padding: 1rem;
 }
 
 footer {
   background: #222;
+  color: #404040;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+  font-family: "Poppins", "Helvetica", "Arial", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+#home {
+  background-color: #4A306D;
+}
+#home main h1 {
+  color: #EFCB68;
+  font-size: calc(3vw + 3rem);
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+#home main p {
+  color: #fff;
 }
 
 .latest-home li {
   line-height: 1;
-  border-top: 1px dotted #dddddd;
+  border-top: 1px dotted #A3A9AA;
 }
 .latest-home li:first-child {
   border: 0;
 }
 .latest-home li a {
+  color: #A167A5;
   display: block;
   padding: 1em;
   transition: color 400ms ease-in-out;
@@ -166,11 +198,14 @@ footer {
   padding: 0.25em 0 0 0;
   font-weight: normal;
   font-size: 0.9em;
-  color: #dddddd;
+  color: #A3A9AA;
   transition: color 400ms ease-in-out;
 }
+.latest-home li:hover a {
+  color: #EFCB68;
+}
 .latest-home li:hover span {
-  color: #363636;
+  color: #fff;
 }
 
 #review #yt-wrap {
@@ -216,7 +251,7 @@ footer {
 #chan {
   padding: 1rem;
   font-size: 1.4em;
-  border: 2px dashed #363636;
+  border: 2px dashed #262626;
 }
 
 #chan.valid {
@@ -235,13 +270,16 @@ footer {
   text-transform: uppercase;
 }
 
+#prev-info {
+  color: #404040;
+}
 #prev-info #prev-heading {
   line-height: 75px;
   padding-left: 2rem;
   font-family: "Pragati Narrow", "Arial", sans-serif;
   font-size: 2.2em;
   font-weight: bolder;
-  color: #a00d0d;
+  color: #A167A5;
   flex-grow: 1;
 }
 #prev-info #prev-heading.long-title {
@@ -269,12 +307,13 @@ footer {
 .review {
   padding-top: 2rem;
   margin-bottom: 2rem;
-  border-top: 1px dotted #dddddd;
+  border-top: 1px dotted #A3A9AA;
 }
 .review:first-child {
   border-top: 0;
 }
 .review h2 {
+  color: #4A306D;
   font-size: 1.5em;
   font-weight: 600;
   margin-bottom: 4px;
@@ -303,10 +342,10 @@ input, textarea {
   display: block;
   box-sizing: border-box;
   width: 100%;
-  border: 1px solid #dddddd;
+  border: 1px solid #A3A9AA;
   padding: 0.5rem;
   font-size: 1.5rem;
-  color: #363636;
+  color: #262626;
 }
 
 input:focus, textarea:focus {
@@ -350,6 +389,22 @@ input:focus, textarea:focus {
     flex: 1 1 0;
     padding: 0;
     margin-left: 2rem;
+  }
+
+  #home {
+    padding: 3rem 0;
+    min-height: 75vh;
+    background-image: url(../images/home.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  #home .flex.wrap {
+    align-content: center;
+    align-items: center;
+  }
+  #home .flex.wrap main, #home .flex.wrap aside {
+    align-self: center;
   }
 }
 

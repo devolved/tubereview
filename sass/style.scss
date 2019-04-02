@@ -1,10 +1,11 @@
 
 
-$col1: #7ac722;
-$col2: #a00d0d;
+$col1: #4A306D;
+$col2: #A167A5;
+$col3: #EFCB68;
 $bg: #222;
-$text: #363636;
-$grey-light: #dddddd;
+$text: #262626;
+$grey-light: #A3A9AA;
 $red: #e52b2b;
 $green: #76ea70;
 
@@ -41,7 +42,7 @@ html, body {
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: none;
     -ms-text-size-adjust: 100%;
-    font-family: 'Roboto', "Arial", sans-serif;
+    font-family: 'Helvetica', "Arial", sans-serif;
 }
 
 a {
@@ -53,10 +54,12 @@ a {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Pragati Narrow', 'Roboto', "Arial", sans-serif;    
+    font-family: 'Poppins', 'Helvetica', "Arial", sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
     margin: 0 0 1rem 0;
     padding: 0;
-    font-size: 3em;
+    font-size: 2.8em;
     color: $col2;   
 }
 
@@ -94,22 +97,32 @@ img {
     padding: 1em;
     white-space: nowrap;
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: bolder;
     letter-spacing: .007px;
     text-transform: uppercase;
+    cursor: pointer;
+    
 }
 
 .button.subscribe { 
     background: #f00; 
     padding: 0.625em 0.875em;
+    font-weight: 500;
+    font-family: "Roboto", "Arial", sans-serif;
     &:hover { color: #fff; }
 }
 
 // all nav
 nav {
     background: $bg;
-
+    color: lighten($text, 10%);
+    text-shadow: $textshadow;
+    font-family: 'Poppins', 'Helvetica', "Arial", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    
     a { font-weight: bolder; transition: color 300ms ease-in; }
+    a:hover { color: $col3; }
     ul { margin: 0; padding: 0; }
     li { }
 
@@ -131,22 +144,39 @@ aside.sidebar {
 
 footer {
     background: $bg;
+    color: lighten($text, 10%);
+    text-shadow: $textshadow;
+    font-family: 'Poppins', 'Helvetica', "Arial", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 
 // home page
 
+#home { 
+    background-color: $col1;
+
+    main {
+        h1 { 
+            color: $col3;
+            font-size: calc(3vw + 3rem);
+            font-weight: bolder;
+            text-transform: uppercase;
+        }
+        p { color: #fff; }
+    }
+}
 .latest-home {
 
     li {
         line-height: 1;
-        // padding: 1em 1em 0 1em;
-        // margin-bottom: 0em;
         border-top: 1px dotted $grey-light;
         
         &:first-child { border: 0; }
 
         a { 
+            color: $col2;
             display: block;
             padding: 1em;
             transition: color 400ms ease-in-out;
@@ -165,18 +195,14 @@ footer {
 
         }
 
-        &:hover { span { color: $text} }
+        &:hover { 
+            a { color: $col3; }
+            span { color: #fff; }
+        }
     }
 
 }
 
-// review page 
-
-ul.review-meta {
-
-
-
-}
 
 // add review page
 
@@ -218,6 +244,8 @@ ul.review-meta {
 #chan-error { color: $red; font-weight: bolder; text-transform: uppercase; }
 
 #prev-info {
+
+    color: lighten($text, 10%);
 
     #prev-heading { 
         line-height: 75px;
@@ -265,6 +293,7 @@ ul.review-meta {
     &:first-child { border-top: 0; }
 
     h2 { 
+        color: $col1;
         font: {
             size: 1.5em;
             weight: 600;
@@ -343,7 +372,26 @@ aside {
 }
 
 
-// review page 
+#home {
+    padding: 3rem 0;
+
+    .flex.wrap { 
+        align-content: center;
+        align-items: center;
+
+        main, aside { align-self: center; }
+
+    }
+
+    min-height: 75vh;
+    background: {
+        image: url(../images/home.jpg);
+        position: center center;
+        size: cover;
+        repeat: no-repeat;
+    }
+
+}
 
 
 
