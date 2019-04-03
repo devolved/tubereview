@@ -93,20 +93,23 @@ img {
 .button, button, input[type="submit"] {
     background-color: $col1;
     border-radius: 0.2em;
-    color: #fff;
+    color: $col3;
     padding: 1em;
     white-space: nowrap;
+    font-family: 'Poppins', 'Helvetica', "Arial", sans-serif;
     font-size: 1rem;
     font-weight: bolder;
     letter-spacing: .007px;
     text-transform: uppercase;
     cursor: pointer;
     
+    &:hover { background-color: $col2; color: $col1; }
 }
 
 .button.subscribe { 
-    background: #f00; 
-    padding: 0.625em 0.875em;
+    background: #f00;
+    color: #fff;
+    padding: 0.5em 0.7em;
     font-weight: 500;
     font-family: "Roboto", "Arial", sans-serif;
     &:hover { color: #fff; }

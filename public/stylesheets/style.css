@@ -102,19 +102,25 @@ img {
 .button, button, input[type=submit] {
   background-color: #4A306D;
   border-radius: 0.2em;
-  color: #fff;
+  color: #EFCB68;
   padding: 1em;
   white-space: nowrap;
+  font-family: "Poppins", "Helvetica", "Arial", sans-serif;
   font-size: 1rem;
   font-weight: bolder;
   letter-spacing: 0.007px;
   text-transform: uppercase;
   cursor: pointer;
 }
+.button:hover, button:hover, input[type=submit]:hover {
+  background-color: #A167A5;
+  color: #4A306D;
+}
 
 .button.subscribe {
   background: #f00;
-  padding: 0.625em 0.875em;
+  color: #fff;
+  padding: 0.5em 0.7em;
   font-weight: 500;
   font-family: "Roboto", "Arial", sans-serif;
 }

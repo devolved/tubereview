@@ -7,6 +7,7 @@ var hbs = require('express-handlebars');
 
 var indexRouter = require('./routes/index');
 var reviewRouter = require('./routes/review');
+var channelsRouter = require('./routes/channels');
 var usersRouter = require('./routes/users');
 
 var app = express();
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/review', reviewRouter);
+app.use('/channels', channelsRouter);
 app.use('/users', usersRouter);
 
 
