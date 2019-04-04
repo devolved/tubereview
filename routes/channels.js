@@ -21,6 +21,7 @@ router.get('/', function(req, res, next) {
         client.db('tube').collection('channel-reviews').findOne({'channelId': chan})
           .then(item => { chanList.push(item) })
           .catch(err => { console.error(err) });
+
       });
 
       client.close();

@@ -326,6 +326,10 @@ footer {
   text-transform: uppercase;
 }
 
+.chanList {
+  padding: 1rem;
+}
+
 /* forms */
 form {
   border: 0;

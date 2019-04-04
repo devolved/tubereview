@@ -2,8 +2,7 @@
 <div class="wrap flex">
     {{#each chanList}}
     <div class="chanList">
-            <span>{{this.channelTitle}}</span>
-        
+            <a href="/review/{{this.ratingUrl}}">{{this.channelTitle}}</a>
     </div>
     {{/each}}
 </div>
