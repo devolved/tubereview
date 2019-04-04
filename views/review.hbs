@@ -1,9 +1,9 @@
-<div id="yt-wrap"><div id="yt-banner" style="background-image: url('{{reviewData.[0].channelBanner}}')"></div></div>
+<div id="yt-wrap"><div id="yt-banner" style="background-image: url('{{reviewData.channelBanner}}')"></div></div>
 <div class="wrap flex">
     <main>
-        <h1>{{reviewData.[0].channelTitle}} review</h1>
+        <h1>{{reviewData.channelTitle}} review</h1>
         <section>
-            {{#each reviewData}}
+            {{#each reviewData.reviews}}
             <article class="review">
                 <h2>{{this.ratingTitle}}</h2>
                 {{{this.ratingContent}}}
@@ -13,13 +13,13 @@
     </main>
     <aside class="sidebar" id="prev-info">
         <div class="flex mbottom">
-            <div id="prev-thumb" style="background-image: url('{{reviewData.[0].channelThumb}}')"></div>
-            <div id="prev-heading"><a href="https://www.youtube.com/channel/{{reviewData.[0].channelId}}?sub_confirmation=1" id="subs" class="button subscribe">Subscribe</a></div>
+            <div id="prev-thumb" style="background-image: url('{{reviewData.channelThumb}}')"></div>
+            <div id="prev-heading"><a href="https://www.youtube.com/channel/{{reviewData.channelId}}?sub_confirmation=1" id="subs" class="button subscribe">Subscribe</a></div>
         </div>
-        <div id="prev-desc">{{{reviewData.[0].channelDescription}}}</div>
+        <div id="prev-desc">{{{reviewData.channelDescription}}}</div>
         
         <div class="hide">
-            <div id="chanID">{{reviewData.[0].channelId}}</div>
+            <div id="chanID">{{reviewData.channelId}}</div>
             <button id="signin-button" onclick="handleSignInClick()">Sign In</button>
             <button id="signout-button" onclick="handleSignOutClick()">Sign Out</button>
         </div>

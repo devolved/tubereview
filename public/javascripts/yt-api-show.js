@@ -34,13 +34,13 @@ function handleSignOutClick(event) { gapi.auth2.getAuthInstance().signOut(); }
 let YTchannel = document.getElementById('chanID').innerHTML;
 
 function makeApiCall(YTchannel) {
-    const YTinfo = {};
+    let YTinfo = {};
     // Make an API call
     gapi.client.youtube.channels.list({
       'part': 'statistics',
       'id': YTchannel
     }).then(function(response) {
-      let YTinfo = response.result.items[0];
+      YTinfo = response.result.items[0];
       populateMeta(YTinfo);
     });
     
