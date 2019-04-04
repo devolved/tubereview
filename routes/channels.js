@@ -6,32 +6,20 @@ var url = 'mongodb://localhost:27017/tube';
 
 /* get channels */
 router.get('/', function(req, res, next) {
-  
-  var chanList = [];
 
-  // latest reviews
+  // get reviews
   MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
     if (err) { return console.log('Unable to connect to MongoDB'); } 
-
-    //get unique IDs from db     
-    client.db('tube').collection('channel-reviews').distinct('channelId', function(err, docs) {
+   
+    client.db('tube').collection('channel-reviews').find({}).sort({channelTitle: 1}).toArray(function(err, chanList){
       if (err) throw err;   
-      docs.forEach(function(chan){
-        
-        client.db('tube').collection('channel-reviews').findOne({'channelId': chan})
-          .then(item => { chanList.push(item) })
-          .catch(err => { console.error(err) });
-
-      });
-
+      console.log(chanList);
       client.close();
       //output page
       res.render('channels', {title: 'Channel list', chanList});
 
     });
-
   });
-
 });
 
 module.exports = router;

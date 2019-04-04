@@ -6,6 +6,7 @@
             {{#each reviewData.reviews}}
             <article class="review">
                 <h2>{{this.ratingTitle}}</h2>
+                <span>By {{this.ratingBy}}</span>
                 {{{this.ratingContent}}}
             </article>
             {{/each}}

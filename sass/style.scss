@@ -9,6 +9,8 @@ $grey-light: #A3A9AA;
 $red: #e52b2b;
 $green: #76ea70;
 
+$font: 'Poppins', 'Helvetica', "Arial", sans-serif;
+
 $textshadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
 
 /* reset */
@@ -112,6 +114,7 @@ img {
     padding: 0.5em 0.7em;
     font-weight: 500;
     font-family: "Roboto", "Arial", sans-serif;
+    transition: width 400ms ease-in;
     &:hover { color: #fff; }
 }
 
@@ -132,7 +135,7 @@ nav {
 }
 
 // content blocks
-.flex { display: static; }
+
 
 main, aside {
     padding: 2rem 0;
@@ -279,7 +282,6 @@ footer {
     #prev-desc {
         overflow: hidden;
         overflow-wrap: anywhere;
-        //hyphens: auto;
         word-break: normal;
         word-break: break-word;
         font-style: italic;
@@ -292,7 +294,7 @@ footer {
     padding-top: 2rem;
     margin-bottom: 2rem;
     border-top: 1px dotted $grey-light;
-
+    position: relative;
     &:first-child { border-top: 0; }
 
     h2 { 
@@ -302,7 +304,17 @@ footer {
             weight: 600;
         }
         margin-bottom: 4px;
+        margin-right: 120px;
         text-transform: uppercase;
+    }
+
+    span {
+        position: absolute;
+        right: 0;
+        margin-top: -1.75rem;
+        font-size: 11px;
+        text-transform: uppercase;
+        color: $grey-light;
     }
 
 }
@@ -310,7 +322,34 @@ footer {
 // channel list
 
 .chanList {
+    width: 25%;
+    text-align: center;
+    margin-bottom: 2rem;
     padding: 1rem;
+    position: relative;
+    overflow: hidden;
+
+    .count {
+        padding: 0.5rem 0.75rem;
+        line-height: 1;
+        color: #fff;
+        font-weight: bolder;
+        background: $col1;
+        position: absolute;
+        top: 0; right: 0;
+        z-index: 2;
+    }
+
+    p {
+        margin-top: 0.5em;
+        font-family: $font;
+        font-weight: 800;
+    }
+
+    a { transition: color 400ms ease-in; color: $grey-light; }
+    a:hover { color: $col1; }
+
+
 }
 
 /* forms */
@@ -402,7 +441,11 @@ aside {
 
 }
 
+// channel list
 
+.chanList {
+    width: 20%;
+}
 
 
 

@@ -1,6 +1,5 @@
 <div id="review">
     <div id="yt-wrap"><div id="yt-banner"></div></div>
-
     <div class="wrap">
         <h1>Add review</h1>
         <p>Review a channel paste the URL in the box below</p>
@@ -9,14 +8,11 @@
             <p id="chan-error"></p>
         </div>
     </div>
-
     <div id="sleeve">
         <div class="wrap flex">
             <main class="f2">
                 <form action="/review/add" method="POST">
                     <ul> 
-            {{!-- fetch channel url or name depending on which is entered --}}
-
                         <li>
                             <label for="rating">Rating</label>
                             <input type="text" id="rating-score" name="ratingScore">
@@ -40,8 +36,6 @@
                             <input type="submit" value="Add review"></input>
                         </li>
                     </ul>
-
-
                 </form>
             </main>
             <aside class="sidebar" id="prev-info">
@@ -50,8 +44,6 @@
                     <div id="prev-heading">Chan preview</div>
                 </div>
                 <div id="prev-desc"></div>
-
-                <br><br>
                 <div class="hide">
                     <button id="signin-button" onclick="handleSignInClick()">Sign In</button>
                     <button id="signout-button" onclick="handleSignOutClick()">Sign Out</button>

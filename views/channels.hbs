@@ -1,8 +1,11 @@
-<div id="yt-wrap"><div id="yt-banner" style="background-image: url('../images/home.jpg')"></div></div>
 <div class="wrap flex">
     {{#each chanList}}
     <div class="chanList">
-            <a href="/review/{{this.ratingUrl}}">{{this.channelTitle}}</a>
+        <a href="/review/{{this.ratingUrl}}">
+            <img src="{{this.channelThumb}}" alt="{{this.channelTitle}}">
+            <p>{{this.channelTitle}}</p> 
+        </a>    
+        <span class="count">{{this.reviews.length}}</span>
     </div>
     {{/each}}
 </div>

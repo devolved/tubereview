@@ -22,7 +22,6 @@ function updateSigninStatus(isSignedIn) {
   // When signin status changes, this function is called.
   // If the signin status is changed to signedIn, we make an API call.
   if (isSignedIn) {
-    console.log(isSignedIn);
     makeApiCall(YTchannel);
   }
 }

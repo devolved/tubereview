@@ -123,6 +123,7 @@ img {
   padding: 0.5em 0.7em;
   font-weight: 500;
   font-family: "Roboto", "Arial", sans-serif;
+  transition: width 400ms ease-in;
 }
 .button.subscribe:hover {
   color: #fff;
@@ -147,10 +148,6 @@ nav ul {
   margin: 0;
   padding: 0;
 }
-.flex {
-  display: static;
-}
-
 main, aside {
   padding: 2rem 0;
   display: block;
@@ -314,6 +311,7 @@ footer {
   padding-top: 2rem;
   margin-bottom: 2rem;
   border-top: 1px dotted #A3A9AA;
+  position: relative;
 }
 .review:first-child {
   border-top: 0;
@@ -323,11 +321,48 @@ footer {
   font-size: 1.5em;
   font-weight: 600;
   margin-bottom: 4px;
+  margin-right: 120px;
   text-transform: uppercase;
+}
+.review span {
+  position: absolute;
+  right: 0;
+  margin-top: -1.75rem;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #A3A9AA;
 }
 
 .chanList {
+  width: 25%;
+  text-align: center;
+  margin-bottom: 2rem;
   padding: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+.chanList .count {
+  padding: 0.5rem 0.75rem;
+  line-height: 1;
+  color: #fff;
+  font-weight: bolder;
+  background: #4A306D;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+.chanList p {
+  margin-top: 0.5em;
+  font-family: "Poppins", "Helvetica", "Arial", sans-serif;
+  font-weight: 800;
+}
+.chanList a {
+  transition: color 400ms ease-in;
+  color: #A3A9AA;
+}
+.chanList a:hover {
+  color: #4A306D;
 }
 
 /* forms */
@@ -415,6 +450,10 @@ input:focus, textarea:focus {
   }
   #home .flex.wrap main, #home .flex.wrap aside {
     align-self: center;
+  }
+
+  .chanList {
+    width: 20%;
   }
 }
 
