@@ -18,6 +18,6 @@ Making this up as I go along, so no roadmap but have a few features that spring 
 
 Reworking DB storage to reduce number of docs in collection. (limited RAM on dev machine)
 
-- Channels: List of channels reviewed with review count
+- Channels: List of channels reviewed with review count &#9745;
 - Actually have a numerical rating (average of reviews)
-- Space for reviewed by (all same user for now)
+- Space for reviewed by (all same user for now) &#9745;
