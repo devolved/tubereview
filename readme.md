@@ -4,10 +4,10 @@
 
 Making this up as I go along, so no roadmap but have a few features that spring to mind
 
-- Add: Fetch YouTube data on either URL or channel name add (not sure which is more noob proof) :black_check_mark:
-- Add: Preview in aside on fetch data :black_check_mark:
-- Review: Theme reviews with channel art :black_check_mark:
-- Review: Add channel info such as sub count :black_check_mark:
+- Add: Fetch YouTube data on either URL or channel name add (not sure which is more noob proof) &#9745;
+- Add: Preview in aside on fetch data &#9745;
+- Review: Theme reviews with channel art &#9745;
+- Review: Add channel info such as sub count &#9745;
 - Channels: List of channels reviewed with review count
 - Channels: Reviewed by list
 - Channels: Preview of top (or only) review
