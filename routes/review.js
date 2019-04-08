@@ -22,7 +22,6 @@ router.get('/:ratingUrl', function(req, res, next) {
       //get result from db     
       client.db('tube').collection('channel-reviews').findOne({'ratingUrl': req.params.ratingUrl}, function(err, result) {
         if (err) throw err;
-        console.log(result);
         reviewData = result;
         client.close();
 

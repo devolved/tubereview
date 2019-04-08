@@ -13,7 +13,6 @@ router.get('/', function(req, res, next) {
    
     client.db('tube').collection('channel-reviews').find({}).sort({channelTitle: 1}).toArray(function(err, chanList){
       if (err) throw err;   
-      console.log(chanList);
       client.close();
       //output page
       res.render('channels', {title: 'Channel list', chanList});
