@@ -1,8 +1,8 @@
-var express = require('express');
-var router = express.Router();
-var MongoClient = require('mongodb').MongoClient;
-var assert = require('assert');
-var url = 'mongodb://localhost:27017/tube';
+const express = require('express');
+const router = express.Router();
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
+const url = 'mongodb://localhost:27017/tube';
 
 // add review
 router.get('/add', function(req, res, next) {

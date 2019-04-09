@@ -1,19 +1,34 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var hbs = require('express-handlebars');
+const express = require('express');
+const app = express();
+const createError = require('http-errors');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const exphbs = require('express-handlebars');
 
-var indexRouter = require('./routes/index');
-var reviewRouter = require('./routes/review');
-var channelsRouter = require('./routes/channels');
-var usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
+const reviewRouter = require('./routes/review');
+const channelsRouter = require('./routes/channels');
+const usersRouter = require('./routes/users');
 
-var app = express();
+const hbars = exphbs.create({
+  extname: 'hbs', 
+  defaultLayout: 'layout', 
+  layoutsDir: __dirname + '/views/layouts/',
+
+  helpers: {
+    foo: function(){
+      return 'foo'
+    }
+
+
+  }
+
+
+});
 
 // view engine setup
-app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/'}));
+app.engine('hbs', hbars.engine);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
