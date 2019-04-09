@@ -25,6 +25,8 @@ router.get('/:ratingUrl', function(req, res, next) {
         reviewData = result;
         client.close();
 
+        console.log(reviewData.reviews.length);
+
         // check a review exists
         if (result === undefined) {
           res.redirect('/review/add');
