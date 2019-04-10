@@ -21,3 +21,12 @@ Reworking DB storage to reduce number of docs in collection. (limited RAM on dev
 - Channels: List of channels reviewed with review count &#9745;
 - Actually have a numerical rating (average of reviews)
 - Space for reviewed by (all same user for now) &#9745;
+
+
+
+# Bugs
+
+- Some undefined values in the YouTube API response cause errors &#9745;
+- First review added doesn't return the review after being forwarded, initially
+- Title length in preview class not refreshed when changing URL entered
+- Can cause error if YT API has slow reply &#9745; 

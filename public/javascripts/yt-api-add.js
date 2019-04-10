@@ -23,6 +23,7 @@ function updateSigninStatus(isSignedIn) {
   // If the signin status is changed to signedIn, we make an API call.
   if (isSignedIn) {
     console.log(isSignedIn);
+    document.getElementById("chan").disabled = false;
   }
 }
 
@@ -69,8 +70,16 @@ function makeApiCall(YTchannel) {
 }
 
 function populatePage(YTinfo){
-  // set banner img
-  document.getElementById('yt-banner').style.backgroundImage='url("' + YTinfo.brandingSettings.image.bannerTabletExtraHdImageUrl + '")';
+
+  // check and set banner img
+  let banner = "";
+  
+  if(typeof(YTinfo.brandingSettings.image.bannerTabletExtraHdImageUrl) === undefined){
+    banner = "/images/home.jpg";
+  } else {
+    banner = YTinfo.brandingSettings.image.bannerTabletExtraHdImageUrl;
+  }  
+  document.getElementById('yt-banner').style.backgroundImage='url("' + banner + '")';
   
   // process chan description to <p> + handle null
   let chanDescription = "";
@@ -80,9 +89,12 @@ function populatePage(YTinfo){
     chanDescription = formatToP(YTinfo.snippet.description);
   }
 
+
+
+
   // populate hidden form data
   document.getElementById('channel-id').value = YTinfo.id;
-  document.getElementById('channel-banner').value = YTinfo.brandingSettings.image.bannerTabletExtraHdImageUrl;
+  document.getElementById('channel-banner').value = banner;
   document.getElementById('channel-thumb').value = YTinfo.snippet.thumbnails.medium.url;
   document.getElementById('channel-title').value = YTinfo.brandingSettings.channel.title;
   document.getElementById('channel-description').value = chanDescription;
@@ -92,8 +104,12 @@ function populatePage(YTinfo){
   document.getElementById('rating-url').value = urlArray.join('-').toLowerCase();
 
   // populate channel preview
-  if (YTinfo.brandingSettings.channel.title.length > 18) {
+  if (YTinfo.brandingSettings.channel.title.length > 20) {
+    document.getElementById('prev-heading').classList.add('very-long-title');
+  } else if (YTinfo.brandingSettings.channel.title.length > 15) {
     document.getElementById('prev-heading').classList.add('long-title');
+  } else {
+
   }
 
   document.getElementById('prev-heading').innerHTML = YTinfo.brandingSettings.channel.title;

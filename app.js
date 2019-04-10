@@ -19,10 +19,32 @@ const hbars = exphbs.create({
   helpers: {
     foo: function(){
       return 'foo'
-    }
+    },
+    paginate: function(arr, option){
+      console.log(arr);
+      if (arr.length > option) {
+
+        return 'Longer';
 
 
-  }
+      } else {
+        let output = "<section>";
+        
+        for (let i = 0; i < arr.length; i++) {
+          output = output + '<article class="review"><h2>' + arr[i].ratingTitle + 
+                            '</h2><span>By ' + arr[i].ratingBy + 
+                            '</span>' + arr[i].ratingContent + 
+                            '</article>';  
+        }
+
+        return output + '</section>';
+      }
+
+    } // end paginate
+
+
+
+  }// end helpers
 
 
 });

@@ -2,15 +2,11 @@
 <div class="wrap flex">
     <main>
         <h1>{{reviewData.channelTitle}} review</h1>
-        <section>
-            {{#each reviewData.reviews}}
-            <article class="review">
-                <h2>{{this.ratingTitle}}</h2>
-                <span>By {{this.ratingBy}}</span>
-                {{{this.ratingContent}}}
-            </article>
-            {{/each}}
-        </section>
+
+            {{#paginate reviewData.reviews 5}}
+
+            {{/paginate}}
+
     </main>
     <aside class="sidebar" id="prev-info">
         <div class="flex mbottom">

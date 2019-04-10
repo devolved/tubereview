@@ -121,9 +121,14 @@ img {
   background: #f00;
   color: #fff;
   padding: 0.5em 0.7em;
+  margin-left: 1rem;
   font-weight: 500;
   font-family: "Roboto", "Arial", sans-serif;
-  transition: width 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  opacity: 0;
+}
+.button.subscribe.fadein {
+  opacity: 1;
 }
 .button.subscribe:hover {
   color: #fff;
@@ -278,15 +283,19 @@ footer {
 }
 #prev-info #prev-heading {
   line-height: 75px;
-  padding-left: 2rem;
+  padding-left: 1rem;
   font-family: "Pragati Narrow", "Arial", sans-serif;
   font-size: 2.2em;
   font-weight: bolder;
   color: #A167A5;
   flex-grow: 1;
+  overflow: hidden;
 }
 #prev-info #prev-heading.long-title {
   font-size: 1.2em;
+}
+#prev-info #prev-heading.very-long-title {
+  font-size: 11px;
 }
 #prev-info #prev-thumb {
   height: 75px;

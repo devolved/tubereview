@@ -46,9 +46,8 @@ function makeApiCall(YTchannel) {
 }
 
 function populateMeta(YTinfo) {
-
     let subs = document.getElementById('subs');
-    let count = parseInt(YTinfo.statistics.subscriberCount, 10);
+    let count = parseInt(YTinfo.statistics.subscriberCount, 10) || 0;
 
     if (count < 1000) {
         subs.innerHTML = "Subscribe " + count;
@@ -60,5 +59,6 @@ function populateMeta(YTinfo) {
         subs.innerHTML = "Subscribe " + x.toString() + "k";
     }
 
+    subs.classList.add("fadein");
 }
 
