@@ -21,10 +21,46 @@ const hbars = exphbs.create({
       return 'foo'
     },
     paginate: function(arr, option){
-      console.log(arr);
+      //console.log(arr);
       if (arr.length > option) {
+        
+        let slides = Math.ceil(arr.length / option);
+        let output = '<div id="paginated">';
 
-        return 'Longer';
+        // loop articles and format
+        let s = 0;
+          while (s < slides) {
+            
+            let newArr = arr.splice(0, option);
+
+            output = output + '<section>';
+            
+            for (let i = 0; i < newArr.length; i++) {
+              output = output + '<article class="review"><h2>' + newArr[i].ratingTitle + 
+                                '</h2><span>By ' + newArr[i].ratingBy + 
+                                '</span>' + newArr[i].ratingContent + 
+                                '</article>';  
+            }
+            
+            output = output + '</section>';
+            s++;
+          }
+
+        output = output + '</div><ul id="pages">';
+        // create pagination nav
+        for (let n = 0; n < slides; n++) {
+          output = output + '<li data-page="' + n + '">' + (n + 1) + '</li>';
+        }
+        
+
+          
+          output = output + '</ul>';
+
+          return output;
+        
+
+
+
 
 
       } else {

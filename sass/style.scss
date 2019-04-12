@@ -66,7 +66,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-p { line-height: 1.25em; margin: 0.5em 0;  }
+p { line-height: 1.25em; margin: 0.5rem 0;  }
 ul {
     margin: 0 0 2em 0;
     li { line-height: 1.25em; }
@@ -325,6 +325,56 @@ footer {
     }
 
 }
+// pagination
+
+#paginated { 
+    overflow: hidden;
+    position: relative;
+
+    section {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        z-index: 1;
+        padding: 1rem;
+        background: #fff;
+        box-shadow: 1px 1px 4px 2px rgba(0,0,0,0.3);
+
+        &.active { z-index: 2; }
+
+        &.away {
+            z-index: 9;
+            animation: slideAway 500ms ease-in 200ms forwards;
+        }
+    }
+
+}
+
+@keyframes slideAway {
+    0% { transform: translateX(0%) scale(1,1); }
+    20% { transform: translateX(0%)  scale(0.95,0.95); }
+  
+    100% { transform: translateX(-120%) scale(0.95,0.95); }
+}
+
+#pages {
+    text-align: center;
+    li { 
+        display: inline-block;
+        padding: 0.5rem 0.75rem;
+        margin: 0 5px;
+        background: $col1;
+        color: $col3;
+        border-radius: 50%;
+        cursor: pointer;
+        &:hover {
+            background: $col2;
+            color: $col1;
+         }
+    }
+}
+
+
 
 // channel list
 
