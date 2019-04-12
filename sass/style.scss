@@ -148,9 +148,8 @@ main, aside {
 }
 
 aside.sidebar {
-    border: 1px solid $grey-light;
-    border-radius: 1rem;
-    padding: 1rem;
+    border-left: 1px dotted $grey-light;
+    padding-left: 2rem;
 }
 
 footer {
@@ -358,19 +357,22 @@ footer {
 }
 
 #pages {
-    text-align: center;
+    text-align: right;
     li { 
         display: inline-block;
         padding: 0.5rem 0.75rem;
         margin: 0 5px;
-        background: $col1;
-        color: $col3;
+        background: $col2;
+        color: $col1;
         border-radius: 50%;
         cursor: pointer;
         &:hover {
-            background: $col2;
-            color: $col1;
-         }
+
+            background: $col1;
+            color: $col3;
+        }
+
+        &.pn { background: $col3; color: $col1; font-weight: bolder; }
     }
 }
 

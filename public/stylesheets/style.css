@@ -159,9 +159,8 @@ main, aside {
 }
 
 aside.sidebar {
-  border: 1px solid #A3A9AA;
-  border-radius: 1rem;
-  padding: 1rem;
+  border-left: 1px dotted #A3A9AA;
+  padding-left: 2rem;
 }
 
 footer {
@@ -376,20 +375,25 @@ footer {
   }
 }
 #pages {
-  text-align: center;
+  text-align: right;
 }
 #pages li {
   display: inline-block;
   padding: 0.5rem 0.75rem;
   margin: 0 5px;
-  background: #4A306D;
-  color: #EFCB68;
+  background: #A167A5;
+  color: #4A306D;
   border-radius: 50%;
   cursor: pointer;
 }
 #pages li:hover {
-  background: #A167A5;
+  background: #4A306D;
+  color: #EFCB68;
+}
+#pages li.pn {
+  background: #EFCB68;
   color: #4A306D;
+  font-weight: bolder;
 }
 
 .chanList {

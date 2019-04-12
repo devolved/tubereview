@@ -25,43 +25,36 @@ const hbars = exphbs.create({
       if (arr.length > option) {
         
         let slides = Math.ceil(arr.length / option);
-        let output = '<div id="paginated">';
+        let output = '<ul id="pages">'
+           // create pagination nav
+           for (let n = 0; n < slides; n++) {
+            output = output + '<li data-page="' + n + '">' + (n + 1) + '</li>';
+          }
+        
+          output = output +  '</ul><div id="paginated">';
 
         // loop articles and format
         let s = 0;
-          while (s < slides) {
-            
-            let newArr = arr.splice(0, option);
-
-            output = output + '<section>';
-            
-            for (let i = 0; i < newArr.length; i++) {
-              output = output + '<article class="review"><h2>' + newArr[i].ratingTitle + 
-                                '</h2><span>By ' + newArr[i].ratingBy + 
-                                '</span>' + newArr[i].ratingContent + 
-                                '</article>';  
-            }
-            
-            output = output + '</section>';
-            s++;
-          }
-
-        output = output + '</div><ul id="pages">';
-        // create pagination nav
-        for (let n = 0; n < slides; n++) {
-          output = output + '<li data-page="' + n + '">' + (n + 1) + '</li>';
-        }
-        
-
+        while (s < slides) {
           
-          output = output + '</ul>';
+          let newArr = arr.splice(0, option);
 
-          return output;
-        
+          output = output + '<section>';
+          
+          for (let i = 0; i < newArr.length; i++) {
+            output = output + '<article class="review"><h2>' + newArr[i].ratingTitle + 
+                              '</h2><span>By ' + newArr[i].ratingBy + 
+                              '</span>' + newArr[i].ratingContent + 
+                              '</article>';  
+          }
+          
+          output = output + '</section>';
+          s++;
+        }
 
+        output = output + '</div>';
 
-
-
+        return output;
 
       } else {
         let output = "<section>";
